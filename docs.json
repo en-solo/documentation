@@ -49,6 +49,17 @@
         ]
       },
       {
+        "tab": "Components",
+        "groups": [
+          {
+            "group": "Core Components",
+            "pages": [
+              "components/button"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "API reference",
         "groups": [
           {
