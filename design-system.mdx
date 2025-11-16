@@ -1,0 +1,250 @@
+---
+title: "Design System Guidelines"
+description: "Comprehensive guidelines for documenting and maintaining our design system"
+icon: "palette"
+---
+
+## Overview
+
+This document provides guidelines for documenting and maintaining our design system. Follow these standards to ensure consistency, clarity, and usability across all design documentation.
+
+## Design Tokens
+
+### Colors
+
+Document all color tokens with the following information:
+
+- **Token name**: Semantic naming (e.g., `primary`, `surface`, `text-primary`)
+- **Color values**: Include hex, RGB, and HSL values
+- **Usage**: When and where to use each color
+- **Accessibility**: WCAG contrast ratios for text combinations
+
+### Typography
+
+For each typography token, include:
+
+- **Font family**: Primary and fallback fonts
+- **Font size**: In rem/px with scale ratios
+- **Line height**: Relative values
+- **Font weight**: Numeric and semantic values
+- **Letter spacing**: When applicable
+- **Use cases**: Headings, body text, captions, etc.
+
+### Spacing
+
+Define spacing tokens with:
+
+- **Scale**: Consistent spacing scale (e.g., 4px, 8px, 16px, 24px, 32px)
+- **Token names**: Semantic naming (e.g., `space-xs`, `space-sm`, `space-md`)
+- **Usage guidelines**: Padding, margins, gaps
+
+### Elevation & Shadows
+
+Document shadow tokens including:
+
+- **Shadow values**: Box-shadow properties
+- **Elevation levels**: Visual hierarchy (e.g., `elevation-1` through `elevation-5`)
+- **Use cases**: Cards, modals, dropdowns
+
+## Components
+
+### Component Documentation Template
+
+For each component, provide:
+
+1. **Component name and description**
+2. **Visual examples**: Default state and all variants
+3. **Anatomy**: Labeled diagram of component parts
+4. **Props/API**: All available properties and their types
+5. **States**: Default, hover, focus, active, disabled, error
+6. **Variants**: Size, color, and style variations
+7. **Usage guidelines**:
+   - When to use
+   - When not to use
+   - Best practices
+8. **Accessibility**: ARIA labels, keyboard navigation, screen reader support
+9. **Code examples**: Implementation samples
+10. **Related components**: Links to similar or complementary components
+
+### Common Components to Document
+
+- Buttons
+- Form inputs (text, select, checkbox, radio, etc.)
+- Cards
+- Modals/Dialogs
+- Navigation (navbar, sidebar, breadcrumbs)
+- Tables
+- Lists
+- Icons
+- Tooltips
+- Alerts/Notifications
+- Badges
+- Progress indicators
+- Tabs
+- Accordions
+
+## Patterns
+
+### Layout Patterns
+
+Document common layout patterns:
+
+- Grid systems
+- Container widths
+- Responsive breakpoints
+- Page templates
+- Section layouts
+
+### Interaction Patterns
+
+Include guidelines for:
+
+- Navigation patterns
+- Form validation
+- Loading states
+- Error handling
+- Empty states
+- Data visualization
+
+## Accessibility
+
+### Standards
+
+- WCAG 2.1 Level AA compliance minimum
+- Keyboard navigation support
+- Screen reader compatibility
+- Focus indicators
+- Color contrast requirements
+
+### Testing Checklist
+
+- [ ] Keyboard navigation works for all interactive elements
+- [ ] Screen reader announces all content appropriately
+- [ ] Color contrast meets WCAG standards
+- [ ] Focus states are clearly visible
+- [ ] Forms have proper labels and error messages
+- [ ] Dynamic content updates are announced
+
+## Writing Guidelines
+
+### Voice and Tone
+
+- **Clear and concise**: Use simple, direct language
+- **Helpful**: Provide context and reasoning
+- **Consistent**: Maintain uniform terminology
+- **Action-oriented**: Focus on what users can do
+
+### Terminology
+
+Maintain a glossary of design system terms:
+
+- Component names (capitalized, consistent)
+- Property names (match code exactly)
+- Design token names (follow naming conventions)
+- Action verbs (use standard set)
+
+## Code Standards
+
+### Naming Conventions
+
+- **Components**: PascalCase (e.g., `ButtonPrimary`)
+- **Design tokens**: kebab-case (e.g., `color-primary-500`)
+- **CSS classes**: BEM or utility-based approach
+- **Props**: camelCase (e.g., `onClick`, `isDisabled`)
+
+### File Organization
+
+```
+design-system/
+├── tokens/
+│   ├── colors.json
+│   ├── typography.json
+│   ├── spacing.json
+│   └── shadows.json
+├── components/
+│   ├── Button/
+│   ├── Input/
+│   └── Card/
+├── patterns/
+│   ├── layouts/
+│   └── interactions/
+└── assets/
+    ├── icons/
+    └── images/
+```
+
+## Versioning
+
+### Version Numbers
+
+Follow semantic versioning (MAJOR.MINOR.PATCH):
+
+- **MAJOR**: Breaking changes to component APIs or tokens
+- **MINOR**: New components or non-breaking additions
+- **PATCH**: Bug fixes and documentation updates
+
+### Changelog
+
+Maintain a changelog with:
+
+- Version number and date
+- Added features/components
+- Changed/updated items
+- Deprecated items
+- Removed items
+- Fixed bugs
+
+## Maintenance
+
+### Review Schedule
+
+- **Monthly**: Review component usage and identify gaps
+- **Quarterly**: Audit accessibility compliance
+- **Semi-annually**: Major version review and planning
+- **As needed**: Address bugs and user feedback
+
+### Contribution Process
+
+1. Propose new components or changes via issue/RFC
+2. Design review and approval
+3. Implementation with documentation
+4. Accessibility audit
+5. Code review
+6. Merge and publish
+
+## Resources
+
+### Tools
+
+- Design tools (Figma, Sketch, Adobe XD)
+- Development tools (Storybook, Style Dictionary)
+- Testing tools (Axe, Pa11y, WAVE)
+- Documentation platforms (Mintlify, Docusaurus)
+
+### References
+
+- WCAG Guidelines: [https://www.w3.org/WAI/WCAG21/quickref/](https://www.w3.org/WAI/WCAG21/quickref/)
+- Inclusive Components: [https://inclusive-components.design/](https://inclusive-components.design/)
+- Design Tokens Format: [https://designtokens.org/](https://designtokens.org/)
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Start with Tokens" icon="swatchbook" href="#design-tokens">
+    Define your foundational design tokens
+  </Card>
+
+  <Card title="Document Components" icon="cube" href="#components">
+    Create comprehensive component documentation
+  </Card>
+
+  <Card title="Establish Patterns" icon="grid" href="#patterns">
+    Document common layout and interaction patterns
+  </Card>
+
+  <Card title="Ensure Accessibility" icon="universal-access" href="#accessibility">
+    Make your design system inclusive
+  </Card>
+</CardGroup>
