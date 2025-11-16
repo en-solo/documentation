@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Scripts for syncing Figma screenshots and specifications to documentation",
   "private": true,
+  "type": "commonjs",
   "scripts": {
     "sync": "node sync-figma.js",
     "test": "echo \"No tests configured\" && exit 0"
@@ -17,5 +18,6 @@
   "license": "MIT",
   "engines": {
     "node": ">=18.0.0"
-  }
+  },
+  "dependencies": {}
 }

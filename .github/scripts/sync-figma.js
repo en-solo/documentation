@@ -230,6 +230,13 @@ class FigmaSync {
 
 // Run sync
 (async () => {
-  const sync = new FigmaSync();
-  await sync.sync();
+  try {
+    const sync = new FigmaSync();
+    await sync.sync();
+    process.exit(0);
+  } catch (error) {
+    console.error('\n❌ Fatal error:', error.message);
+    console.error(error.stack);
+    process.exit(1);
+  }
 })();
