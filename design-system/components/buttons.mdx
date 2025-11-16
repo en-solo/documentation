@@ -1,0 +1,568 @@
+---
+title: "Button"
+description: "Interactive element for triggering actions and navigating within the application"
+icon: "hand-pointer"
+---
+
+<!-- figma-frame: SXZAoGxCC0diTaGa9q5Vme/1042-143 -->
+
+### Button
+
+<Frame>
+  ![Button Component](/images/figma/button-component.png)
+</Frame>
+
+<AccordionGroup>
+  <Accordion title="Spacing">
+    - **Padding (Small)**: 8px top/bottom, 16px left/right
+    - **Gap**: 8px between icon and label
+    - **Border Radius**: 16px
+  </Accordion>
+
+  <Accordion title="Colors">
+    **Primary (Default)**
+    - **Background**: `#17171A` (Dark gray)
+    - **Text**: `#FCFCFC` (Near white)
+
+    **Note**: Additional color variants are defined through the `type` property:
+    - `default` - Standard dark background
+    - `inverse` - Inverted colors
+    - `for` - Voting "for" variant
+    - `against` - Voting "against" variant
+    - `neutral` - Neutral variant
+  </Accordion>
+
+  <Accordion title="Typography">
+    - **Font Family**: Poppins
+    - **Font Weight**: 400 (Regular)
+    - **Font Size**: 16px
+    - **Line Height**: 24px (150%)
+    - **Letter Spacing**: 0px
+  </Accordion>
+
+  <Accordion title="Layout">
+    - **Height (Small)**: 44px
+    - **Height (Large)**: Variable based on content
+    - **Width**: Auto (based on content + padding)
+  </Accordion>
+
+</AccordionGroup>
+
+<!-- /figma-sync -->
+
+## Overview
+
+Buttons are interactive elements that allow users to perform actions and make choices with a single tap or click. The Kopi button component is highly flexible with multiple variants, types, states, and configuration options.
+
+## Component Properties
+
+Your Button component includes the following customizable properties:
+
+### Variants
+
+<AccordionGroup>
+  <Accordion title="variant" icon="palette">
+    Controls the visual style of the button:
+    - **primary** - Main call-to-action style
+    - **secondary** - Alternative action style
+    - **ghost** - Minimal, low-emphasis style
+    - **vote** - Special voting button style
+  </Accordion>
+
+  <Accordion title="type" icon="brush">
+    Controls color theming:
+    - **default** - Standard dark theme
+    - **inverse** - Inverted color scheme
+    - **for** - Positive/approval voting
+    - **against** - Negative/rejection voting
+    - **neutral** - Neutral voting option
+  </Accordion>
+
+  <Accordion title="state" icon="toggle-on">
+    Visual state of the button:
+    - **default** - Normal, ready for interaction
+    - **pressed** - Actively being clicked
+    - **active** - Currently selected/active
+    - **disabled** - Unavailable for interaction
+  </Accordion>
+
+  <Accordion title="size" icon="ruler">
+    Size variation:
+    - **sm** - Small button (44px height)
+    - **lg** - Large button
+  </Accordion>
+
+  <Accordion title="icon only" icon="icons">
+    Display mode:
+    - **false** - Button with label (and optional icons)
+    - **true** - Icon-only button without label
+  </Accordion>
+</AccordionGroup>
+
+### Additional Properties
+
+- **icon left** (Boolean): Show/hide left icon
+- **icon right** (Boolean): Show/hide right icon
+- **label** (Text): Button text content
+- **Icon.left** (Instance Swap): Customizable left icon
+- **icon.right** (Instance Swap): Customizable right icon
+
+## When to Use
+
+<CardGroup cols={2}>
+  <Card title="Primary Actions" icon="star">
+    Use `variant="primary"` for the most important action on a page
+  </Card>
+
+  <Card title="Form Submissions" icon="paper-plane">
+    Submit forms, complete flows, or confirm actions
+  </Card>
+
+  <Card title="Navigation" icon="arrow-right">
+    Move users to different pages or sections
+  </Card>
+
+  <Card title="Voting Actions" icon="check-to-slot">
+    Use `variant="vote"` with `type="for/against/neutral"` for voting interfaces
+  </Card>
+</CardGroup>
+
+### When Not to Use
+
+<Warning>
+  - **Navigation within text**: Use links instead
+  - **Too many primary buttons**: Use `variant="secondary"` or `variant="ghost"` for less important actions
+  - **Non-interactive elements**: Don't style non-clickable elements as buttons
+  - **Toggle states**: Use toggle switches or checkboxes for binary on/off states
+</Warning>
+
+## Design Specifications
+
+### Spacing
+
+<Note>
+All spacing values use design tokens from your Figma design system.
+</Note>
+
+**Small Size (sm)**
+- **Padding**: 8px (top/bottom) × 16px (left/right)
+- **Icon-label gap**: 8px
+- **Height**: 44px
+- **Border radius**: 16px
+- **Minimum touch target**: 44px × 44px (WCAG compliant)
+
+**Large Size (lg)**
+- Scales proportionally based on content
+- Maintains same border radius and gap ratios
+
+### Colors
+
+Your button uses design token variables for dynamic theming. Here are the base values:
+
+#### Primary Variant - Default Type
+- **Background**: `#17171A` (rgb(23, 23, 26))
+- **Text/Icons**: `#FCFCFC` (rgb(252, 252, 252))
+- **Border**: None
+
+<Info>
+Other color combinations are managed through Figma variables based on the `variant` and `type` properties. The automation will sync these values when your design tokens change.
+</Info>
+
+### Typography
+
+- **Font Family**: Poppins
+- **Font Weight**: 400 (Regular)
+- **Font Size**: 16px
+- **Line Height**: 24px (1.5 or 150%)
+- **Letter Spacing**: 0px
+- **Text Align**: Center (within button)
+- **Text Transform**: None
+
+### Icon Specifications
+
+- **Icon Size**: 24px × 24px
+- **Icon Color**: Inherits from text color token
+- **Icon Position**: Configurable (left, right, or icon-only)
+- **Icon-Label Gap**: 8px
+
+## Usage Examples
+
+### React/TypeScript
+
+```tsx
+import { Button } from '@/components/ui/button';
+
+// Primary button with label
+<Button
+  variant="primary"
+  type="default"
+  size="sm"
+  state="default"
+>
+  Submit
+</Button>
+
+// Secondary button with left icon
+<Button
+  variant="secondary"
+  type="default"
+  size="sm"
+  iconLeft={true}
+  icon={{left: <PlusIcon />}}
+>
+  Add Item
+</Button>
+
+// Vote button - For
+<Button
+  variant="vote"
+  type="for"
+  size="sm"
+>
+  Vote For
+</Button>
+
+// Vote button - Against
+<Button
+  variant="vote"
+  type="against"
+  size="sm"
+>
+  Vote Against
+</Button>
+
+// Ghost button
+<Button
+  variant="ghost"
+  type="default"
+  size="sm"
+>
+  Cancel
+</Button>
+
+// Icon-only button
+<Button
+  variant="primary"
+  type="default"
+  size="sm"
+  iconOnly={true}
+  aria-label="Close"
+>
+  <CloseIcon />
+</Button>
+
+// Large disabled button
+<Button
+  variant="primary"
+  type="default"
+  size="lg"
+  state="disabled"
+  disabled
+>
+  Processing...
+</Button>
+```
+
+### HTML/CSS
+
+```html
+<!-- Primary button -->
+<button class="btn btn--primary btn--default btn--sm">
+  Submit
+</button>
+
+<!-- Button with left icon -->
+<button class="btn btn--secondary btn--default btn--sm">
+  <span class="btn__icon btn__icon--left">
+    <svg>...</svg>
+  </span>
+  <span class="btn__label">Add Item</span>
+</button>
+
+<!-- Vote button -->
+<button class="btn btn--vote btn--for btn--sm">
+  Vote For
+</button>
+
+<!-- Icon-only button -->
+<button class="btn btn--primary btn--default btn--sm btn--icon-only" aria-label="Close">
+  <span class="btn__icon">
+    <svg>...</svg>
+  </span>
+</button>
+```
+
+### CSS Tokens
+
+```css
+.btn {
+  /* Spacing */
+  --btn-padding-y-sm: 8px;
+  --btn-padding-x-sm: 16px;
+  --btn-gap: 8px;
+  --btn-border-radius: 16px;
+
+  /* Typography */
+  --btn-font-family: 'Poppins', sans-serif;
+  --btn-font-weight: 400;
+  --btn-font-size: 16px;
+  --btn-line-height: 24px;
+  --btn-letter-spacing: 0;
+
+  /* Layout */
+  --btn-height-sm: 44px;
+  --btn-icon-size: 24px;
+}
+
+/* Primary variant - default type */
+.btn--primary.btn--default {
+  --btn-bg: #17171A;
+  --btn-text: #FCFCFC;
+}
+
+/* Component structure */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap);
+
+  padding: var(--btn-padding-y-sm) var(--btn-padding-x-sm);
+  height: var(--btn-height-sm);
+
+  font-family: var(--btn-font-family);
+  font-weight: var(--btn-font-weight);
+  font-size: var(--btn-font-size);
+  line-height: var(--btn-line-height);
+  letter-spacing: var(--btn-letter-spacing);
+
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  border-radius: var(--btn-border-radius);
+
+  cursor: pointer;
+  user-select: none;
+  transition: all 150ms ease-in-out;
+}
+
+.btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--btn-icon-size);
+  height: var(--btn-icon-size);
+}
+
+.btn--icon-only .btn__label {
+  display: none;
+}
+```
+
+## Accessibility
+
+### WCAG Compliance
+
+<AccordionGroup>
+  <Accordion title="Keyboard Support" icon="keyboard">
+    - **Tab**: Move focus to the button
+    - **Shift + Tab**: Move focus away from the button
+    - **Enter/Space**: Activate the button
+    - **Disabled buttons**: Should not receive keyboard focus
+  </Accordion>
+
+  <Accordion title="Screen Reader Support" icon="audio-description">
+    - Use semantic `<button>` elements
+    - Include descriptive labels (the `label` property)
+    - For icon-only buttons (`icon only=true`), always provide `aria-label`
+    - Use `aria-disabled="true"` for disabled state
+    - Use `aria-pressed` for toggle-style active states
+  </Accordion>
+
+  <Accordion title="Color Contrast" icon="eye">
+    **Primary Default** (`#FCFCFC` on `#17171A`):
+    - Contrast ratio: ~19.8:1 ✓ Exceeds WCAG AAA (7:1)
+
+    Ensure all variant/type combinations meet WCAG AA minimum (4.5:1)
+  </Accordion>
+
+  <Accordion title="Touch Targets" icon="hand-pointer">
+    - **Small size**: 44px height ✓ Meets WCAG 2.5.5 (44×44px minimum)
+    - **Large size**: Exceeds minimum requirements
+    - Ensure adequate spacing (8px+) between adjacent buttons
+  </Accordion>
+</AccordionGroup>
+
+### ARIA Attributes
+
+```html
+<!-- Standard button -->
+<button type="button">
+  Submit
+</button>
+
+<!-- Icon-only button -->
+<button type="button" aria-label="Close dialog">
+  <CloseIcon />
+</button>
+
+<!-- Disabled button -->
+<button type="button" aria-disabled="true" disabled>
+  Submit
+</button>
+
+<!-- Active/pressed button (for toggles) -->
+<button
+  type="button"
+  aria-pressed="true"
+  class="btn--active"
+>
+  Starred
+</button>
+
+<!-- Button that controls another element -->
+<button
+  type="button"
+  aria-expanded="false"
+  aria-controls="menu-1"
+>
+  Menu
+</button>
+```
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Button Hierarchy" icon="layer-group">
+    ✅ **Do:**
+    - Use one `variant="primary"` button per screen/section
+    - Use `variant="secondary"` for alternative actions
+    - Use `variant="ghost"` for tertiary or dismissive actions
+    - Use `variant="vote"` exclusively for voting interfaces
+
+    ❌ **Don't:**
+    - Use multiple primary buttons competing for attention
+    - Mix voting buttons with standard buttons inconsistently
+  </Accordion>
+
+  <Accordion title="Icon Usage" icon="icons">
+    ✅ **Do:**
+    - Use icons to enhance button meaning
+    - Keep icon-only buttons for universally understood actions
+    - Always provide `aria-label` for icon-only buttons
+    - Use left icons for leading actions, right icons for trailing actions
+
+    ❌ **Don't:**
+    - Use obscure icons without labels
+    - Overload buttons with both left and right icons unless necessary
+    - Use decorative icons that don't add meaning
+  </Accordion>
+
+  <Accordion title="States" icon="toggle-on">
+    ✅ **Do:**
+    - Use `state="disabled"` sparingly with explanatory tooltips
+    - Use `state="active"` for currently selected options
+    - Use `state="pressed"` for momentary feedback
+    - Provide visual feedback for all interactive states
+
+    ❌ **Don't:**
+    - Disable without explanation
+    - Use disabled as the default state
+    - Rely solely on color to indicate state (use icons/text too)
+  </Accordion>
+
+  <Accordion title="Voting Buttons" icon="check-to-slot">
+    ✅ **Do:**
+    - Use `variant="vote"` with appropriate `type` (for/against/neutral)
+    - Make voting options visually distinct
+    - Provide clear labels for voting actions
+    - Use `state="active"` to show current vote
+
+    ❌ **Don't:**
+    - Mix voting variants with standard button variants
+    - Use voting colors for non-voting actions
+    - Make voting buttons ambiguous
+  </Accordion>
+</AccordionGroup>
+
+## Common Patterns
+
+### Form Actions
+
+```tsx
+<div className="form-actions">
+  <Button variant="ghost" type="default" size="sm">
+    Cancel
+  </Button>
+  <Button variant="primary" type="default" size="sm" htmlType="submit">
+    Save Changes
+  </Button>
+</div>
+```
+
+### Voting Interface
+
+```tsx
+<div className="voting-actions">
+  <Button
+    variant="vote"
+    type="for"
+    size="sm"
+    state={userVote === 'for' ? 'active' : 'default'}
+    onClick={handleVoteFor}
+  >
+    For ({forCount})
+  </Button>
+
+  <Button
+    variant="vote"
+    type="neutral"
+    size="sm"
+    state={userVote === 'neutral' ? 'active' : 'default'}
+    onClick={handleVoteNeutral}
+  >
+    Abstain ({neutralCount})
+  </Button>
+
+  <Button
+    variant="vote"
+    type="against"
+    size="sm"
+    state={userVote === 'against' ? 'active' : 'default'}
+    onClick={handleVoteAgainst}
+  >
+    Against ({againstCount})
+  </Button>
+</div>
+```
+
+### Button with Icons
+
+```tsx
+// Left icon
+<Button variant="primary" type="default" size="sm" iconLeft={true}>
+  <PlusIcon /> Add Item
+</Button>
+
+// Right icon (e.g., dropdown)
+<Button variant="secondary" type="default" size="sm" iconRight={true}>
+  Options <ChevronDownIcon />
+</Button>
+
+// Icon only
+<Button
+  variant="ghost"
+  type="default"
+  size="sm"
+  iconOnly={true}
+  aria-label="More options"
+>
+  <MoreIcon />
+</Button>
+```
+
+---
+
+<Info>
+  This component documentation is automatically synced with Figma. The specifications and screenshots are updated every Monday at 9:00 AM UTC when the design is modified. Last synced from Figma file **SXZAoGxCC0diTaGa9q5Vme** node **1042-143**.
+</Info>
