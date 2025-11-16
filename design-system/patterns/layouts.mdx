@@ -1,0 +1,316 @@
+---
+title: "Layout Patterns"
+description: "Common layout patterns and composition guidelines"
+icon: "grid"
+---
+
+## Overview
+
+Layout patterns provide proven solutions for organizing content and components on a page. Use these patterns as starting points for your designs.
+
+## Common Patterns
+
+### Hero Section
+
+<Accordion title="Hero with centered content" icon="star">
+  **Description**: Large hero section with centered content, typically used on landing pages
+
+  **Structure**:
+  - Full-width container
+  - Centered text content
+  - Primary CTA button
+  - Optional background image or illustration
+
+  **Spacing**:
+  - Vertical padding: 80px - 120px (desktop), 48px - 64px (mobile)
+  - Content max-width: 800px
+  - Gap between elements: 24px - 32px
+
+  **Best for**: Landing pages, marketing sites, product launches
+</Accordion>
+
+<Accordion title="Hero with split content" icon="star">
+  **Description**: Two-column hero with content on one side and visual on the other
+
+  **Structure**:
+  - 50/50 or 60/40 column split
+  - Text content in one column
+  - Image, illustration, or video in other column
+  - CTAs below text content
+
+  **Spacing**:
+  - Column gap: 48px - 64px (desktop)
+  - Stacks vertically on mobile
+  - Vertical padding: 64px - 80px
+
+  **Best for**: SaaS products, feature highlights, app showcases
+</Accordion>
+
+### Content Layouts
+
+<Accordion title="Single column" icon="rectangle-vertical">
+  **Description**: Simple single-column layout for reading-focused content
+
+  **Structure**:
+  - Centered column
+  - Max-width: 680px - 800px
+  - Side margins for breathing room
+
+  **Spacing**:
+  - Vertical rhythm: 24px between sections
+  - Side padding: 24px - 32px
+  - Line length: 50-75 characters
+
+  **Best for**: Blog posts, documentation, long-form content
+</Accordion>
+
+<Accordion title="Sidebar layout" icon="sidebar">
+  **Description**: Main content area with sidebar for navigation or supplementary content
+
+  **Structure**:
+  - Primary content: 66-75% width
+  - Sidebar: 25-33% width
+  - Gap between: 32px - 48px
+
+  **Responsive**:
+  - Desktop: Side-by-side
+  - Tablet: Narrower sidebar
+  - Mobile: Stacked (sidebar first or last depending on priority)
+
+  **Best for**: Documentation, admin dashboards, profile pages
+</Accordion>
+
+<Accordion title="Three-column grid" icon="table-columns">
+  **Description**: Three equal-width columns for balanced content display
+
+  **Structure**:
+  - Equal width columns (33.33% each)
+  - Gap: 24px - 32px
+  - Responsive: 2 columns on tablet, 1 on mobile
+
+  **Best for**: Feature showcases, service listings, team members
+</Accordion>
+
+### Card Layouts
+
+<Accordion title="Card grid" icon="grid-2">
+  **Description**: Responsive grid of cards with consistent sizing
+
+  **Structure**:
+  - Auto-fit grid: `minmax(300px, 1fr)`
+  - Gap: 24px - 32px
+  - Cards have equal heights in each row
+
+  **Responsive**:
+  - Desktop: 3-4 columns
+  - Tablet: 2 columns
+  - Mobile: 1 column
+
+  **Best for**: Product catalogs, blog listings, image galleries
+</Accordion>
+
+<Accordion title="Masonry layout" icon="grid">
+  **Description**: Pinterest-style layout with cards of varying heights
+
+  **Structure**:
+  - Multiple columns with cards filling vertical space
+  - Maintains column count across breakpoints
+  - Cards flow to shortest column
+
+  **Best for**: Image galleries, portfolios, content aggregation
+</Accordion>
+
+### Dashboard Layouts
+
+<Accordion title="Stats overview" icon="chart-simple">
+  **Description**: Key metrics displayed in a row of stat cards
+
+  **Structure**:
+  - 4 equal-width cards in a row
+  - Each card shows: number, label, trend indicator
+  - Gap: 16px - 24px
+
+  **Responsive**:
+  - Desktop: 4 columns
+  - Tablet: 2 columns
+  - Mobile: 1 column or 2 columns for smaller stats
+
+  **Best for**: Analytics dashboards, admin panels, KPI displays
+</Accordion>
+
+<Accordion title="Grid dashboard" icon="table-cells-large">
+  **Description**: Mixed layout with widgets of different sizes
+
+  **Structure**:
+  - CSS Grid with defined areas
+  - Widgets span different numbers of columns/rows
+  - Consistent gaps throughout
+
+  **Example areas**:
+  - Large chart: 2×2
+  - Medium widgets: 1×2
+  - Small stats: 1×1
+
+  **Best for**: Analytics platforms, monitoring tools, admin dashboards
+</Accordion>
+
+### Form Layouts
+
+<Accordion title="Single column form" icon="list">
+  **Description**: Vertical form layout for simple, focused forms
+
+  **Structure**:
+  - One field per row
+  - Max-width: 480px - 560px
+  - Labels above fields
+  - Gap: 20px - 24px between fields
+
+  **Best for**: Login, signup, simple contact forms, checkout
+</Accordion>
+
+<Accordion title="Multi-column form" icon="table-columns">
+  **Description**: Two-column form for complex forms with many fields
+
+  **Structure**:
+  - Related fields grouped in columns
+  - Full-width fields for important inputs
+  - Gap: 24px horizontal, 20px vertical
+
+  **Responsive**:
+  - Collapses to single column on mobile
+
+  **Best for**: Registration, profile settings, complex data entry
+</Accordion>
+
+## Container System
+
+<CardGroup cols={3}>
+  <Card title="Narrow Container" icon="rectangle-vertical">
+    **Max-width**: 680px
+
+    **Use for**: Reading content, forms, focused layouts
+  </Card>
+
+  <Card title="Standard Container" icon="rectangle-wide">
+    **Max-width**: 1200px
+
+    **Use for**: Most page content, default container
+  </Card>
+
+  <Card title="Wide Container" icon="rectangle-wide">
+    **Max-width**: 1440px
+
+    **Use for**: Dashboards, data tables, complex layouts
+  </Card>
+</CardGroup>
+
+## Spacing Guidelines
+
+### Vertical Spacing
+
+| Section Type | Top Spacing | Bottom Spacing |
+|--------------|-------------|----------------|
+| Hero section | 0 | 80px - 120px |
+| Content section | 64px - 80px | 64px - 80px |
+| Feature block | 48px | 48px |
+| Minor section | 32px | 32px |
+
+### Horizontal Spacing
+
+| Context | Spacing |
+|---------|---------|
+| Container padding | 16px (mobile), 24px (tablet), 32px+ (desktop) |
+| Column gap | 24px - 48px |
+| Card gap | 16px - 32px |
+
+## Responsive Breakpoints
+
+```css
+/* Mobile first approach */
+/* Mobile: < 640px - base styles */
+
+/* Tablet */
+@media (min-width: 640px) { }
+
+/* Desktop */
+@media (min-width: 1024px) { }
+
+/* Large desktop */
+@media (min-width: 1440px) { }
+```
+
+## Best Practices
+
+<Steps>
+  <Step title="Start with mobile">
+    Design mobile layouts first, then enhance for larger screens
+  </Step>
+
+  <Step title="Use consistent containers">
+    Limit yourself to 2-3 container widths throughout your site
+  </Step>
+
+  <Step title="Maintain rhythm">
+    Use consistent spacing between sections based on your spacing scale
+  </Step>
+
+  <Step title="Consider reading">
+    Keep line lengths between 50-75 characters for comfortable reading
+  </Step>
+
+  <Step title="Prioritize content">
+    On mobile, show the most important content first
+  </Step>
+</Steps>
+
+## Layout Examples
+
+### Landing Page Structure
+
+```
+┌─────────────────────────────┐
+│         Navigation          │
+├─────────────────────────────┤
+│       Hero Section          │
+│   (centered or split)       │
+├─────────────────────────────┤
+│      Features (3-col)       │
+├─────────────────────────────┤
+│    Testimonials (cards)     │
+├─────────────────────────────┤
+│       CTA Section           │
+├─────────────────────────────┤
+│          Footer             │
+└─────────────────────────────┘
+```
+
+### Dashboard Structure
+
+```
+┌──────┬──────────────────────┐
+│ Side │   Header / Stats     │
+│ Nav  ├──────────────────────┤
+│      │                      │
+│      │    Main Content      │
+│      │   (grid/charts)      │
+│      │                      │
+└──────┴──────────────────────┘
+```
+
+## Accessibility Considerations
+
+<Warning>
+  Ensure proper heading hierarchy (h1 → h2 → h3) regardless of visual layout
+</Warning>
+
+- Use semantic HTML (`header`, `main`, `aside`, `footer`)
+- Maintain logical tab order independent of visual layout
+- Ensure sufficient color contrast in all layout components
+- Test keyboard navigation through the entire layout
+- Provide skip links for long navigation sections
+
+## Resources
+
+<Info>
+  When implementing layouts from your Figma designs, extract the specific spacing values, grid configurations, and breakpoint behaviors to document here.
+</Info>

@@ -49,12 +49,34 @@
         ]
       },
       {
-        "tab": "Components",
+        "tab": "Design System",
         "groups": [
           {
-            "group": "Core Components",
+            "group": "Overview",
             "pages": [
-              "components/button"
+              "design-system/overview"
+            ]
+          },
+          {
+            "group": "Foundations",
+            "pages": [
+              "design-system/foundations/colors",
+              "design-system/foundations/typography",
+              "design-system/foundations/spacing",
+              "design-system/foundations/shadows",
+              "design-system/foundations/design-tokens"
+            ]
+          },
+          {
+            "group": "Components",
+            "pages": [
+              "design-system/components/buttons"
+            ]
+          },
+          {
+            "group": "Patterns",
+            "pages": [
+              "design-system/patterns/layouts"
             ]
           }
         ]

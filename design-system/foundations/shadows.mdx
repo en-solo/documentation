@@ -1,0 +1,327 @@
+---
+title: "Shadows & Elevation"
+description: "Shadow system for depth, elevation, and visual hierarchy"
+icon: "cube"
+---
+
+## Elevation System
+
+Our shadow system creates depth and hierarchy through elevation levels. Each level corresponds to how "high" an element appears above the page.
+
+### Shadow Levels
+
+<AccordionGroup>
+  <Accordion title="Extra Small - shadow/xs" icon="square">
+    **Minimal shadow**
+
+    ```css
+    /* Kopi Design Token */
+    box-shadow: var(--shadow-xs);
+    ```
+
+    **Usage**: Subtle borders, slight elevation, input fields at rest
+
+    **Token**: `shadow/xs`
+  </Accordion>
+
+  <Accordion title="Small - shadow/sm" icon="square">
+    **Subtle shadow**
+
+    ```css
+    /* Kopi Design Token */
+    box-shadow: var(--shadow-sm);
+    ```
+
+    **Usage**: Cards at rest, raised elements, subtle separation
+
+    **Token**: `shadow/sm`
+  </Accordion>
+
+  <Accordion title="Medium - shadow/md" icon="square">
+    **Soft shadow**
+
+    ```css
+    /* Kopi Design Token */
+    box-shadow: var(--shadow-md);
+    ```
+
+    **Usage**: Hover states, dropdowns, popovers, floating elements
+
+    **Token**: `shadow/md`
+  </Accordion>
+
+  <Accordion title="Large - shadow/lg" icon="square">
+    **Elevated shadow**
+
+    ```css
+    /* Kopi Design Token */
+    box-shadow: var(--shadow-lg);
+    ```
+
+    **Usage**: Tooltips, notifications, active cards, elevated panels
+
+    **Token**: `shadow/lg`
+  </Accordion>
+
+  <Accordion title="Extra Large - shadow/xl" icon="square">
+    **Strong shadow**
+
+    ```css
+    /* Kopi Design Token */
+    box-shadow: var(--shadow-xl);
+    ```
+
+    **Usage**: Modals, dialogs, drawers, overlays, important elements
+
+    **Token**: `shadow/xl`
+  </Accordion>
+</AccordionGroup>
+
+## Shadow Tokens
+
+Use these Kopi design tokens in your implementation:
+
+| Token | CSS Variable | Usage |
+|-------|--------------|-------|
+| `shadow/xs` | `var(--shadow-xs)` | Minimal elevation |
+| `shadow/sm` | `var(--shadow-sm)` | Subtle elevation |
+| `shadow/md` | `var(--shadow-md)` | Default elevation |
+| `shadow/lg` | `var(--shadow-lg)` | High elevation |
+| `shadow/xl` | `var(--shadow-xl)` | Highest elevation |
+
+<Note>
+  Shadow values are defined in your design system's CSS variables. Use the token names above to ensure consistency across your application.
+</Note>
+
+## Inner Shadows
+
+For inset effects and pressed states:
+
+<AccordionGroup>
+  <Accordion title="Inset Small" icon="square">
+    ```css
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+    ```
+
+    **Usage**: Pressed buttons, active inputs, wells
+  </Accordion>
+
+  <Accordion title="Inset Medium" icon="square">
+    ```css
+    box-shadow: inset 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+    ```
+
+    **Usage**: Sunken areas, text areas, content wells
+  </Accordion>
+</AccordionGroup>
+
+## Colored Shadows
+
+For emphasis or branded elements, use colored shadows:
+
+### Primary Color Shadow
+
+```css
+box-shadow: 0 10px 15px -3px rgba(var(--primary-rgb), 0.2),
+            0 4px 6px -2px rgba(var(--primary-rgb), 0.1);
+```
+
+**Usage**: Primary CTAs, important actions, focus states
+
+### Success Shadow
+
+```css
+box-shadow: 0 4px 6px -1px rgba(34, 197, 94, 0.2),
+            0 2px 4px -1px rgba(34, 197, 94, 0.1);
+```
+
+**Usage**: Success messages, confirmations
+
+### Error Shadow
+
+```css
+box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.2),
+            0 2px 4px -1px rgba(239, 68, 68, 0.1);
+```
+
+**Usage**: Error states, destructive actions
+
+## Z-Index Scale
+
+Maintain a consistent z-index scale for layering elements:
+
+| Layer | Z-Index | Usage |
+|-------|---------|-------|
+| Base | 0 | Default page content |
+| Dropdown | 100 | Dropdowns, popovers |
+| Sticky | 200 | Sticky headers, persistent nav |
+| Fixed | 300 | Fixed elements |
+| Overlay Backdrop | 400 | Modal backdrops |
+| Overlay Content | 500 | Modals, dialogs |
+| Popover | 600 | Tooltips, context menus |
+| Toast | 700 | Notifications, toasts |
+| Maximum | 999 | Critical overlays only |
+
+<Warning>
+  Avoid arbitrary z-index values like 9999. Use the scale above for predictable layering.
+</Warning>
+
+## Usage Guidelines
+
+<Steps>
+  <Step title="Match shadow to elevation">
+    Use lighter shadows for subtle elevation, stronger shadows for prominent overlays
+  </Step>
+
+  <Step title="Be consistent">
+    Apply the same shadow level to similar components across your interface
+  </Step>
+
+  <Step title="Animate transitions">
+    Smoothly transition between shadow levels on hover or interaction states
+  </Step>
+
+  <Step title="Consider context">
+    Use stronger shadows on light backgrounds, lighter shadows on dark backgrounds
+  </Step>
+
+  <Step title="Limit shadow layers">
+    Don't stack too many elevated elements - maintain clear visual hierarchy
+  </Step>
+</Steps>
+
+## Interactive States
+
+### Hover Effects
+
+```css
+.card {
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+}
+```
+
+### Active/Pressed States
+
+```css
+.button {
+  box-shadow: var(--shadow-md);
+}
+
+.button:active {
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+}
+```
+
+### Focus States
+
+```css
+.input:focus {
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.2);
+}
+```
+
+## Dark Mode Adjustments
+
+<Info>
+  In dark mode, use lighter shadow colors and reduce opacity for better visibility against dark backgrounds.
+</Info>
+
+### Dark Mode Shadows
+
+```css
+/* Light mode */
+.card {
+  box-shadow: var(--shadow-md);
+}
+
+/* Dark mode - tokens automatically adjust */
+@media (prefers-color-scheme: dark) {
+  .card {
+    box-shadow: var(--shadow-md);
+    /* Shadow values are defined in your theme and adjust for dark mode */
+  }
+}
+```
+
+## Component Examples
+
+### Card with Shadow
+
+```html
+<div class="card">
+  <!-- Card content -->
+</div>
+
+<style>
+.card {
+  padding: 24px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+}
+</style>
+```
+
+### Button with Colored Shadow
+
+```html
+<button class="button-primary">
+  Click me
+</button>
+
+<style>
+.button-primary {
+  padding: 12px 24px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.2s ease;
+}
+
+.button-primary:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.button-primary:active {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(0);
+}
+</style>
+```
+
+## Performance Considerations
+
+<Tip>
+  Shadows can be expensive to render. Use `will-change: box-shadow` sparingly and only for elements that frequently animate shadows.
+</Tip>
+
+```css
+.frequently-animated {
+  will-change: box-shadow;
+}
+
+/* Remove when animation is complete */
+.frequently-animated.animation-done {
+  will-change: auto;
+}
+```
+
+## Accessibility
+
+- Shadows are decorative and don't convey essential information
+- Never rely solely on shadows to indicate state or importance
+- Ensure sufficient color contrast regardless of shadow presence
+- Test visibility in high contrast modes where shadows may be removed

@@ -1,0 +1,386 @@
+---
+title: "Typography"
+description: "Font families, scales, and text styling guidelines"
+icon: "font"
+---
+
+## Font Families
+
+Kopi uses a carefully selected set of four font families, each serving specific purposes in the design system.
+
+### Primary Font
+
+**Font**: `Readex Pro`
+
+**Weights Available**:
+- Regular (400)
+- Medium (590)
+- Semi-Bold (600)
+- Bold (700)
+
+**Usage**: Primary typeface for body text, UI elements, and general content
+
+```css
+font-family: 'Readex Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+```
+
+### Secondary Font
+
+**Font**: `Poppins`
+
+**Weights Available**:
+- Regular (400)
+- Medium (590)
+- Semi-Bold (600)
+- Bold (700)
+
+**Usage**: Secondary typeface for complementary text and UI elements
+
+```css
+font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+```
+
+### Display Font
+
+**Font**: `Lexend`
+
+**Weights Available**:
+- Regular (400)
+- Medium (590)
+- Semi-Bold (600)
+- Bold (700)
+
+**Usage**: Large headings, hero sections, and display text
+
+```css
+font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+```
+
+### System Font
+
+**Font**: `SF Pro`
+
+**Usage**: System UI elements, native-looking interfaces
+
+```css
+font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+```
+
+## Type Scale
+
+Kopi's type scale provides a consistent set of font sizes for creating clear visual hierarchy.
+
+### Font Size Scale
+
+| Token | Size (px) | Size (rem) | Usage |
+|-------|-----------|------------|-------|
+| 3xl | 35px | 2.188rem | Display headings, hero text |
+| 2xl | 24px | 1.5rem | Large headings |
+| xl | 20px | 1.25rem | Medium headings |
+| lg | 17px | 1.063rem | Small headings, emphasized text |
+| base | 16px | 1rem | Default body text |
+| sm | 14px | 0.875rem | Secondary text, captions |
+| xs | 12px | 0.75rem | Labels, footnotes, small UI text |
+
+### Line Heights
+
+Available line height values for different text sizes:
+
+- 14px (0.875rem)
+- 16px (1rem)
+- 17px (1.063rem)
+- 20px (1.25rem)
+- 24px (1.5rem)
+- 28px (1.75rem)
+- 32px (2rem)
+- 35px (2.188rem)
+
+## Text Styles
+
+### Font Weights
+
+Kopi uses four font weights to create hierarchy and emphasis throughout the interface.
+
+<CardGroup cols={2}>
+  <Card title="Regular (400)" icon="text">
+    Default weight for body text and most content
+  </Card>
+
+  <Card title="Medium (590)" icon="text">
+    Emphasized text within paragraphs, subtle headings
+  </Card>
+
+  <Card title="Semi-Bold (600)" icon="text">
+    Headings, labels, navigation items, buttons
+  </Card>
+
+  <Card title="Bold (700)" icon="bold">
+    Strong emphasis, primary headings, CTAs
+  </Card>
+</CardGroup>
+
+### Named Text Styles
+
+Kopi defines 13 named text styles that combine font size, weight, and line height for common use cases:
+
+#### Heading Styles
+
+<CardGroup cols={2}>
+  <Card title="text/heading/display" icon="heading">
+    Largest heading style for hero sections and major page titles
+  </Card>
+
+  <Card title="text/heading/large" icon="heading">
+    Large headings for section titles
+  </Card>
+
+  <Card title="text/heading/medium" icon="heading">
+    Medium headings for subsections
+  </Card>
+
+  <Card title="text/heading/small" icon="heading">
+    Small headings for cards and components
+  </Card>
+</CardGroup>
+
+#### Content Styles - Body
+
+<CardGroup cols={3}>
+  <Card title="text/content/body/regular" icon="text">
+    Default body text with regular weight (400)
+  </Card>
+
+  <Card title="text/content/body/medium" icon="text">
+    Body text with medium weight (590) for emphasis
+  </Card>
+
+  <Card title="text/content/body/bold" icon="bold">
+    Body text with bold weight (700) for strong emphasis
+  </Card>
+</CardGroup>
+
+#### Content Styles - Note
+
+<CardGroup cols={3}>
+  <Card title="text/content/note/regular" icon="note">
+    Secondary text size with regular weight
+  </Card>
+
+  <Card title="text/content/note/medium" icon="note">
+    Secondary text size with medium weight
+  </Card>
+
+  <Card title="text/content/note/bold" icon="note">
+    Secondary text size with bold weight
+  </Card>
+</CardGroup>
+
+#### Content Styles - Caption
+
+<CardGroup cols={3}>
+  <Card title="text/content/caption/regular" icon="message">
+    Small text for captions and labels with regular weight
+  </Card>
+
+  <Card title="text/content/caption/medium" icon="message">
+    Small text for captions and labels with medium weight
+  </Card>
+
+  <Card title="text/content/caption/bold" icon="message">
+    Small text for captions and labels with bold weight
+  </Card>
+</CardGroup>
+
+### Text Decoration
+
+| Style | Usage | Example |
+|-------|-------|---------|
+| **Bold** | Strong emphasis, important terms | `font-weight: 590`, `600`, or `700` |
+| *Italic* | Subtle emphasis, citations, foreign words | `font-style: italic` |
+| Underline | Links (only) | `text-decoration: underline` |
+| ~~Strikethrough~~ | Deprecated content, price reductions | `text-decoration: line-through` |
+
+<Warning>
+  Avoid using underline for anything other than links to prevent confusion.
+</Warning>
+
+## Implementation
+
+### CSS Custom Properties
+
+Use CSS custom properties to implement the Kopi typography system:
+
+```css
+:root {
+  /* Font Families */
+  --font-primary: 'Readex Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-secondary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-system: 'SF Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Font Sizes */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.063rem;   /* 17px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --text-3xl: 2.188rem;  /* 35px */
+
+  /* Font Weights */
+  --font-regular: 400;
+  --font-medium: 590;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* Line Heights */
+  --leading-tight: 0.875rem;   /* 14px */
+  --leading-snug: 1rem;        /* 16px */
+  --leading-normal: 1.063rem;  /* 17px */
+  --leading-relaxed: 1.25rem;  /* 20px */
+  --leading-loose: 1.5rem;     /* 24px */
+}
+```
+
+## Letter Spacing
+
+| Element | Letter Spacing | Purpose |
+|---------|---------------|---------|
+| Display headings | -0.02em to -0.01em | Tighter spacing for large text |
+| Body text | 0 | Normal spacing |
+| ALL CAPS text | 0.05em to 0.1em | Improved readability |
+| Button labels | 0.02em | Slight spacing for prominence |
+
+## Line Height
+
+<Tip>
+  Line height creates vertical rhythm. Use 1.5 (150%) for body text as a baseline for readability.
+</Tip>
+
+**Recommended ratios:**
+- Headings: 1.1 - 1.3
+- Body text: 1.4 - 1.6
+- Captions: 1.3 - 1.4
+
+## Text Colors
+
+Use colors from our [color system](/design-system/foundations/colors) with appropriate contrast ratios.
+
+| Context | Color | Contrast Ratio |
+|---------|-------|----------------|
+| Primary text | Gray 900 | 4.5:1+ on white |
+| Secondary text | Gray 600 | 4.5:1+ on white |
+| Disabled text | Gray 400 | 3:1+ (non-critical) |
+| Link text | Primary 500 | 4.5:1+ on white |
+| Error text | Error 600 | 4.5:1+ on white |
+
+## Usage Guidelines
+
+<Steps>
+  <Step title="Establish hierarchy">
+    Use the type scale consistently to create clear visual hierarchy. Don't skip levels (e.g., H1 to H3).
+  </Step>
+
+  <Step title="Limit font variations">
+    Use a maximum of 2-3 font sizes per component or section to maintain simplicity.
+  </Step>
+
+  <Step title="Maintain rhythm">
+    Use consistent spacing between text elements based on the 8px grid system.
+  </Step>
+
+  <Step title="Ensure readability">
+    Keep line lengths between 50-75 characters for optimal reading. Use 1.5 line height for body text.
+  </Step>
+
+  <Step title="Check accessibility">
+    Ensure all text meets WCAG 2.1 AA contrast requirements against its background.
+  </Step>
+</Steps>
+
+## Responsive Typography
+
+<AccordionGroup>
+  <Accordion title="Mobile (< 768px)" icon="mobile">
+    Consider scaling down larger text sizes for smaller screens:
+
+    - 3xl (35px): Use 2xl (24px) instead
+    - 2xl (24px): Use xl (20px) instead
+    - xl (20px): Keep same
+    - lg (17px): Keep same
+    - base (16px): Keep same (default body)
+    - sm (14px): Keep same
+    - xs (12px): Keep same
+  </Accordion>
+
+  <Accordion title="Tablet (768px - 1024px)" icon="tablet">
+    Use the full type scale with minor adjustments:
+
+    - 3xl (35px): May reduce to 2xl (24px) for long headings
+    - All other sizes: Use as specified
+  </Accordion>
+
+  <Accordion title="Desktop (> 1024px)" icon="desktop">
+    Use full type scale as specified:
+
+    - 3xl: 35px
+    - 2xl: 24px
+    - xl: 20px
+    - lg: 17px
+    - base: 16px
+    - sm: 14px
+    - xs: 12px
+  </Accordion>
+</AccordionGroup>
+
+## Examples
+
+### Using Named Text Styles
+
+```css
+/* Display Heading */
+.hero-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+}
+
+/* Body Text */
+.content-text {
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  font-weight: var(--font-regular);
+  line-height: var(--leading-loose);
+}
+
+/* Caption Text */
+.caption {
+  font-family: var(--font-primary);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+}
+```
+
+### Text Hierarchy
+
+```html
+<!-- Display heading with Lexend -->
+<h1 class="text-3xl font-bold font-display">Welcome to Kopi</h1>
+
+<!-- Large heading with primary font -->
+<h2 class="text-2xl font-semibold font-primary">Getting Started</h2>
+
+<!-- Body text -->
+<p class="text-base font-regular font-primary">
+  This is default body text using Readex Pro at 16px.
+</p>
+
+<!-- Caption with secondary font -->
+<span class="text-sm font-medium font-secondary">
+  Additional information
+</span>
+```
+
+<Info>
+  Use the named text styles (text/heading/*, text/content/*) to ensure consistency across your application. These pre-defined combinations have been tested for optimal readability and hierarchy.
+</Info>

@@ -1,0 +1,193 @@
+---
+title: "Colors"
+description: "Color palette, usage guidelines, and accessibility standards"
+icon: "palette"
+---
+
+## Color Palette
+
+Our color system is designed for clarity, accessibility, and brand consistency.
+
+### Primary Colors
+
+<AccordionGroup>
+  <Accordion title="Purple" icon="circle" iconType="solid">
+    **Usage**: Primary brand color for main actions, links, and key brand elements
+
+    | Variant | Hex | RGB | Usage |
+    |---------|-----|-----|-------|
+    | Purple | `#9747ff` | `rgb(151, 71, 255)` | Primary brand color |
+
+    <Tip>
+      Purple is the primary brand color used for primary CTAs, interactive elements, and brand identification.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="Blue" icon="circle" iconType="solid">
+    **Usage**: Secondary brand color for accents and supporting elements
+
+    | Variant | Hex | RGB | Usage |
+    |---------|-----|-----|-------|
+    | Blue | `#2684fc` | `rgb(38, 132, 252)` | Secondary brand color |
+
+    <Tip>
+      Blue serves as a complementary brand color for secondary actions and accents.
+    </Tip>
+  </Accordion>
+</AccordionGroup>
+
+### Semantic Colors
+
+<AccordionGroup>
+  <Accordion title="Success" icon="circle-check" iconType="solid">
+    **Usage**: Success states, confirmations, positive feedback
+
+    | Variant | Hex | RGB | Usage |
+    |---------|-----|-----|-------|
+    | Success | `#34c759` | `rgb(52, 199, 89)` | Success messages, confirmations, positive indicators |
+  </Accordion>
+
+  <Accordion title="Warning" icon="triangle-exclamation" iconType="solid">
+    **Usage**: Warning states, caution messages
+
+    | Variant | Hex | RGB | Usage |
+    |---------|-----|-----|-------|
+    | Warning | `#ff6900` | `rgb(255, 105, 0)` | Warning messages, caution indicators |
+  </Accordion>
+
+  <Accordion title="Error" icon="circle-exclamation" iconType="solid">
+    **Usage**: Error states, destructive actions, validation errors
+
+    | Variant | Hex | RGB | Usage |
+    |---------|-----|-----|-------|
+    | Error | `#ff5858` | `rgb(255, 88, 88)` | Error messages, destructive actions, validation errors |
+  </Accordion>
+
+  <Accordion title="Info" icon="circle-info" iconType="solid">
+    **Usage**: Informational messages, neutral notifications
+
+    | Variant | Hex | RGB | Usage |
+    |---------|-----|-----|-------|
+    | Info | `#5861ff` | `rgb(88, 97, 255)` | Informational messages, neutral notifications |
+  </Accordion>
+</AccordionGroup>
+
+### Neutral Colors
+
+<Accordion title="Gray Scale" icon="circle" iconType="solid">
+  **Usage**: Text, backgrounds, borders, dividers
+
+  | Variant | Hex | RGB | Usage |
+  |---------|-----|-----|-------|
+  | White | `#ffffff` | `rgb(255, 255, 255)` | Pure white backgrounds |
+  | Gray 50 | `#fafafa` | `rgb(250, 250, 250)` | Lightest background |
+  | Gray 100 | `#f4f4f5` | `rgb(244, 244, 245)` | Light background |
+  | Gray 200 | `#e4e4e7` | `rgb(228, 228, 231)` | Borders and dividers |
+  | Gray 400 | `#9f9fa9` | `rgb(159, 159, 169)` | Disabled text and secondary UI |
+  | Gray 500 | `#71717b` | `rgb(113, 113, 123)` | Placeholder text |
+  | Gray 600 | `#52525c` | `rgb(82, 82, 92)` | Secondary text |
+  | Gray 800 | `#27272a` | `rgb(39, 39, 42)` | Dark UI elements |
+  | Gray 900 | `#18181b` | `rgb(24, 24, 27)` | Primary text |
+  | Black | `#000000` | `rgb(0, 0, 0)` | Pure black |
+</Accordion>
+
+### Background Colors
+
+<Accordion title="Background Variants" icon="square" iconType="solid">
+  **Usage**: Page and component backgrounds
+
+  | Variant | Hex | RGB | Usage |
+  |---------|-----|-----|-------|
+  | Primary | `#fdfdfd` | `rgb(253, 253, 253)` | Main page backgrounds |
+  | Secondary | `#f5f5f5` | `rgb(245, 245, 245)` | Secondary surfaces and panels |
+  | Tertiary | `#fafafa` | `rgb(250, 250, 250)` | Tertiary backgrounds and subtle elevation |
+</Accordion>
+
+### Border Colors
+
+<Accordion title="Border Variants" icon="border-all" iconType="solid">
+  **Usage**: Component borders and dividers
+
+  | Variant | Hex | RGB | Usage |
+  |---------|-----|-----|-------|
+  | Default | `#e4e4e7` | `rgb(228, 228, 231)` | Standard borders and dividers |
+  | Subtle | `#d2d4db` | `rgb(210, 212, 219)` | Subtle borders for lighter separation |
+</Accordion>
+
+## Accessibility
+
+### Contrast Ratios
+
+All color combinations must meet WCAG 2.1 AA standards at minimum:
+
+<CardGroup cols={2}>
+  <Card title="Normal Text" icon="text">
+    **Minimum ratio: 4.5:1**
+
+    For text smaller than 18px (or 14px bold)
+  </Card>
+
+  <Card title="Large Text" icon="heading">
+    **Minimum ratio: 3:1**
+
+    For text 18px+ (or 14px+ bold)
+  </Card>
+
+  <Card title="UI Components" icon="square-check">
+    **Minimum ratio: 3:1**
+
+    For interactive elements and graphics
+  </Card>
+
+  <Card title="AAA Standard" icon="medal">
+    **Enhanced ratios**
+
+    Normal text: 7:1, Large text: 4.5:1
+  </Card>
+</CardGroup>
+
+### Color Blindness
+
+<Warning>
+  Never rely solely on color to convey information. Always pair color with text, icons, or patterns.
+</Warning>
+
+Test all color combinations for:
+- Protanopia (red-blind)
+- Deuteranopia (green-blind)
+- Tritanopia (blue-blind)
+- Achromatopsia (total color blindness)
+
+## Usage Guidelines
+
+<Steps>
+  <Step title="Start with semantic meaning">
+    Choose colors based on their semantic meaning (primary for main actions, error for warnings, etc.)
+  </Step>
+
+  <Step title="Check contrast">
+    Verify contrast ratios meet accessibility standards using tools like WebAIM Contrast Checker
+  </Step>
+
+  <Step title="Use consistently">
+    Apply the same color for the same purpose across all interfaces
+  </Step>
+
+  <Step title="Limit your palette">
+    Use 2-3 colors per component or section to avoid visual clutter
+  </Step>
+</Steps>
+
+## Dark Mode
+
+<Info>
+  When implementing dark mode, use darker variants for backgrounds and lighter variants for text and interactive elements. Maintain the same contrast ratios as light mode.
+</Info>
+
+| Element | Light Mode | Dark Mode |
+|---------|------------|-----------|
+| Background | Gray 50 (`#fafafa`) | Gray 900 (`#18181b`) |
+| Surface | White (`#ffffff`) | Gray 800 (`#27272a`) |
+| Text Primary | Gray 900 (`#18181b`) | Gray 50 (`#fafafa`) |
+| Text Secondary | Gray 600 (`#52525c`) | Gray 400 (`#9f9fa9`) |
+| Borders | Gray 200 (`#e4e4e7`) | Gray 600 (`#52525c`) |
