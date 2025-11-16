@@ -6,15 +6,112 @@ icon: "hand-pointer"
 
 <!-- figma-frame: SXZAoGxCC0diTaGa9q5Vme/1042-143 -->
 
+### Button
+
+<Frame>
+  ![Button Component](../images/figma/button-component.png)
+</Frame>
+
+<AccordionGroup>
+  <Accordion title="Spacing">
+    - **Padding (Small)**: 8px top/bottom, 16px left/right
+    - **Gap**: 8px between icon and label
+    - **Border Radius**: 16px
+  </Accordion>
+
+  <Accordion title="Colors">
+    **Primary (Default)**
+    - **Background**: `#17171A` (Dark gray)
+    - **Text**: `#FCFCFC` (Near white)
+
+    **Note**: Additional color variants are defined through the `type` property:
+    - `default` - Standard dark background
+    - `inverse` - Inverted colors
+    - `for` - Voting "for" variant
+    - `against` - Voting "against" variant
+    - `neutral` - Neutral variant
+  </Accordion>
+
+  <Accordion title="Typography">
+    - **Font Family**: Poppins
+    - **Font Weight**: 400 (Regular)
+    - **Font Size**: 16px
+    - **Line Height**: 24px (150%)
+    - **Letter Spacing**: 0px
+  </Accordion>
+
+  <Accordion title="Layout">
+    - **Height (Small)**: 44px
+    - **Height (Large)**: Variable based on content
+    - **Width**: Auto (based on content + padding)
+  </Accordion>
+
+</AccordionGroup>
+
+<!-- /figma-sync -->
+
 ## Overview
 
-Buttons are interactive elements that allow users to perform actions and make choices with a single tap or click. They communicate actions that users can take and are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.
+Buttons are interactive elements that allow users to perform actions and make choices with a single tap or click. The Kopi button component is highly flexible with multiple variants, types, states, and configuration options.
+
+## Component Properties
+
+Your Button component includes the following customizable properties:
+
+### Variants
+
+<AccordionGroup>
+  <Accordion title="variant" icon="palette">
+    Controls the visual style of the button:
+    - **primary** - Main call-to-action style
+    - **secondary** - Alternative action style
+    - **ghost** - Minimal, low-emphasis style
+    - **vote** - Special voting button style
+  </Accordion>
+
+  <Accordion title="type" icon="brush">
+    Controls color theming:
+    - **default** - Standard dark theme
+    - **inverse** - Inverted color scheme
+    - **for** - Positive/approval voting
+    - **against** - Negative/rejection voting
+    - **neutral** - Neutral voting option
+  </Accordion>
+
+  <Accordion title="state" icon="toggle-on">
+    Visual state of the button:
+    - **default** - Normal, ready for interaction
+    - **pressed** - Actively being clicked
+    - **active** - Currently selected/active
+    - **disabled** - Unavailable for interaction
+  </Accordion>
+
+  <Accordion title="size" icon="ruler">
+    Size variation:
+    - **sm** - Small button (44px height)
+    - **lg** - Large button
+  </Accordion>
+
+  <Accordion title="icon only" icon="icons">
+    Display mode:
+    - **false** - Button with label (and optional icons)
+    - **true** - Icon-only button without label
+  </Accordion>
+</AccordionGroup>
+
+### Additional Properties
+
+- **icon left** (Boolean): Show/hide left icon
+- **icon right** (Boolean): Show/hide right icon
+- **label** (Text): Button text content
+- **Icon.left** (Instance Swap): Customizable left icon
+- **icon.right** (Instance Swap): Customizable right icon
 
 ## When to Use
 
 <CardGroup cols={2}>
   <Card title="Primary Actions" icon="star">
-    Use for the most important action on a page or section
+    Use `variant="primary"` for the most important action on a page
   </Card>
 
   <Card title="Form Submissions" icon="paper-plane">
@@ -25,8 +122,8 @@ Buttons are interactive elements that allow users to perform actions and make ch
     Move users to different pages or sections
   </Card>
 
-  <Card title="Triggering Actions" icon="play">
-    Start processes, open dialogs, or execute commands
+  <Card title="Voting Actions" icon="check-to-slot">
+    Use `variant="vote"` with `type="for/against/neutral"` for voting interfaces
   </Card>
 </CardGroup>
 
@@ -34,179 +131,233 @@ Buttons are interactive elements that allow users to perform actions and make ch
 
 <Warning>
   - **Navigation within text**: Use links instead
-  - **Too many actions**: Prioritize and use secondary buttons or links for less important actions
+  - **Too many primary buttons**: Use `variant="secondary"` or `variant="ghost"` for less important actions
   - **Non-interactive elements**: Don't style non-clickable elements as buttons
-  - **Toggle states**: Use toggle switches or checkboxes instead
+  - **Toggle states**: Use toggle switches or checkboxes for binary on/off states
 </Warning>
-
-## Variants
-
-### Primary Button
-
-The primary button is used for the main call-to-action on a page or within a section. Use sparingly—typically only one primary button per screen or section.
-
-**Use for:**
-- Main action on a page (e.g., "Save", "Submit", "Continue")
-- High-emphasis actions that advance the user's workflow
-- Final step in a multi-step process
-
-### Secondary Button
-
-Secondary buttons are used for important but not primary actions. They provide visual weight but don't compete with the primary action.
-
-**Use for:**
-- Alternative actions (e.g., "Cancel", "Go Back")
-- Actions of medium emphasis
-- Multiple actions of equal importance
-
-### Tertiary Button
-
-Tertiary buttons are the lowest emphasis variant. They're used for less important actions or when multiple actions are needed.
-
-**Use for:**
-- Optional actions
-- Less frequently used actions
-- Actions in data-dense interfaces (tables, lists)
-
-### Ghost Button
-
-Ghost buttons have minimal visual weight and are used for the least important actions.
-
-**Use for:**
-- Dismissive actions (e.g., "Cancel", "Skip")
-- Actions within other components (cards, banners)
-- Tertiary navigation
-
-### Icon Button
-
-Icon-only buttons are compact and used when space is limited or the icon clearly communicates the action.
-
-**Use for:**
-- Common actions with universally understood icons (e.g., close, edit, delete)
-- Toolbars and action bars
-- Compact interfaces
-
-<Note>
-  Always include an accessible label for icon buttons, even if it's not visually displayed.
-</Note>
-
-## States
-
-All button variants support the following states:
-
-### Default
-The standard appearance when the button is ready for interaction.
-
-### Hover
-Visual feedback when the user's cursor is over the button.
-
-### Focus
-Indicates the button has keyboard focus, important for accessibility.
-
-### Active/Pressed
-The appearance while the button is being clicked or pressed.
-
-### Disabled
-Indicates the action is currently unavailable. Include a tooltip explaining why when possible.
-
-### Loading
-Shows that an action is in progress. The button should remain disabled during this state.
-
-## Sizes
-
-Buttons come in three sizes to accommodate different use cases:
-
-<AccordionGroup>
-  <Accordion title="Small" icon="compress">
-    **Height**: 32px
-
-    **Use for:**
-    - Compact interfaces
-    - Dense data tables
-    - Secondary actions in tight spaces
-
-    **Padding**: 8px 16px
-  </Accordion>
-
-  <Accordion title="Medium (Default)" icon="equals">
-    **Height**: 40px
-
-    **Use for:**
-    - Most standard interfaces
-    - Forms and dialogs
-    - General purpose actions
-
-    **Padding**: 12px 24px
-  </Accordion>
-
-  <Accordion title="Large" icon="expand">
-    **Height**: 48px
-
-    **Use for:**
-    - Mobile interfaces
-    - Primary CTAs on landing pages
-    - Touch-optimized interfaces
-
-    **Padding**: 16px 32px
-  </Accordion>
-</AccordionGroup>
 
 ## Design Specifications
 
 ### Spacing
 
-- **Padding (Medium)**: 12px top/bottom, 24px left/right
-- **Gap**: 8px between icon and text
-- **Minimum width**: 88px (to ensure touch target size)
-- **Border radius**: 8px
-- **Icon size**: 20px × 20px
+<Note>
+All spacing values use design tokens from your Figma design system.
+</Note>
+
+**Small Size (sm)**
+- **Padding**: 8px (top/bottom) × 16px (left/right)
+- **Icon-label gap**: 8px
+- **Height**: 44px
+- **Border radius**: 16px
+- **Minimum touch target**: 44px × 44px (WCAG compliant)
+
+**Large Size (lg)**
+- Scales proportionally based on content
+- Maintains same border radius and gap ratios
 
 ### Colors
 
-#### Primary Button
-- **Background**: `primary-600` (#16A34A)
-- **Background (Hover)**: `primary-700` (#15803D)
-- **Background (Active)**: `primary-800` (#166534)
-- **Text**: `white` (#FFFFFF)
+Your button uses design token variables for dynamic theming. Here are the base values:
+
+#### Primary Variant - Default Type
+- **Background**: `#17171A` (rgb(23, 23, 26))
+- **Text/Icons**: `#FCFCFC` (rgb(252, 252, 252))
 - **Border**: None
 
-#### Secondary Button
-- **Background**: `transparent`
-- **Background (Hover)**: `primary-50` (#F0FDF4)
-- **Background (Active)**: `primary-100` (#DCFCE7)
-- **Text**: `primary-700` (#15803D)
-- **Border**: 1px solid `primary-600` (#16A34A)
-
-#### Disabled State (All variants)
-- **Background**: `gray-100` (#F3F4F6)
-- **Text**: `gray-400` (#9CA3AF)
-- **Opacity**: 0.5
-- **Cursor**: not-allowed
+<Info>
+Other color combinations are managed through Figma variables based on the `variant` and `type` properties. The automation will sync these values when your design tokens change.
+</Info>
 
 ### Typography
 
-- **Font family**: Inter
-- **Font weight**: 600 (Semi-bold)
-- **Font size**:
-  - Small: 14px
-  - Medium: 16px
-  - Large: 18px
-- **Line height**: 1.5
-- **Text transform**: None
-- **Letter spacing**: 0
+- **Font Family**: Poppins
+- **Font Weight**: 400 (Regular)
+- **Font Size**: 16px
+- **Line Height**: 24px (1.5 or 150%)
+- **Letter Spacing**: 0px
+- **Text Align**: Center (within button)
+- **Text Transform**: None
 
-### Effects
+### Icon Specifications
 
-- **Focus ring**: 2px solid `primary-500`, 2px offset
-- **Shadow (Default)**:
-  - Offset: 0px 1px 2px
-  - Color: rgba(0, 0, 0, 0.05)
-  - Blur: 2px
-- **Shadow (Hover)**:
-  - Offset: 0px 2px 4px
-  - Color: rgba(0, 0, 0, 0.1)
-  - Blur: 4px
-- **Transition**: all 150ms ease-in-out
+- **Icon Size**: 24px × 24px
+- **Icon Color**: Inherits from text color token
+- **Icon Position**: Configurable (left, right, or icon-only)
+- **Icon-Label Gap**: 8px
+
+## Usage Examples
+
+### React/TypeScript
+
+```tsx
+import { Button } from '@/components/ui/button';
+
+// Primary button with label
+<Button
+  variant="primary"
+  type="default"
+  size="sm"
+  state="default"
+>
+  Submit
+</Button>
+
+// Secondary button with left icon
+<Button
+  variant="secondary"
+  type="default"
+  size="sm"
+  iconLeft={true}
+  icon={{left: <PlusIcon />}}
+>
+  Add Item
+</Button>
+
+// Vote button - For
+<Button
+  variant="vote"
+  type="for"
+  size="sm"
+>
+  Vote For
+</Button>
+
+// Vote button - Against
+<Button
+  variant="vote"
+  type="against"
+  size="sm"
+>
+  Vote Against
+</Button>
+
+// Ghost button
+<Button
+  variant="ghost"
+  type="default"
+  size="sm"
+>
+  Cancel
+</Button>
+
+// Icon-only button
+<Button
+  variant="primary"
+  type="default"
+  size="sm"
+  iconOnly={true}
+  aria-label="Close"
+>
+  <CloseIcon />
+</Button>
+
+// Large disabled button
+<Button
+  variant="primary"
+  type="default"
+  size="lg"
+  state="disabled"
+  disabled
+>
+  Processing...
+</Button>
+```
+
+### HTML/CSS
+
+```html
+<!-- Primary button -->
+<button class="btn btn--primary btn--default btn--sm">
+  Submit
+</button>
+
+<!-- Button with left icon -->
+<button class="btn btn--secondary btn--default btn--sm">
+  <span class="btn__icon btn__icon--left">
+    <svg>...</svg>
+  </span>
+  <span class="btn__label">Add Item</span>
+</button>
+
+<!-- Vote button -->
+<button class="btn btn--vote btn--for btn--sm">
+  Vote For
+</button>
+
+<!-- Icon-only button -->
+<button class="btn btn--primary btn--default btn--sm btn--icon-only" aria-label="Close">
+  <span class="btn__icon">
+    <svg>...</svg>
+  </span>
+</button>
+```
+
+### CSS Tokens
+
+```css
+.btn {
+  /* Spacing */
+  --btn-padding-y-sm: 8px;
+  --btn-padding-x-sm: 16px;
+  --btn-gap: 8px;
+  --btn-border-radius: 16px;
+
+  /* Typography */
+  --btn-font-family: 'Poppins', sans-serif;
+  --btn-font-weight: 400;
+  --btn-font-size: 16px;
+  --btn-line-height: 24px;
+  --btn-letter-spacing: 0;
+
+  /* Layout */
+  --btn-height-sm: 44px;
+  --btn-icon-size: 24px;
+}
+
+/* Primary variant - default type */
+.btn--primary.btn--default {
+  --btn-bg: #17171A;
+  --btn-text: #FCFCFC;
+}
+
+/* Component structure */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap);
+
+  padding: var(--btn-padding-y-sm) var(--btn-padding-x-sm);
+  height: var(--btn-height-sm);
+
+  font-family: var(--btn-font-family);
+  font-weight: var(--btn-font-weight);
+  font-size: var(--btn-font-size);
+  line-height: var(--btn-line-height);
+  letter-spacing: var(--btn-letter-spacing);
+
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  border-radius: var(--btn-border-radius);
+
+  cursor: pointer;
+  user-select: none;
+  transition: all 150ms ease-in-out;
+}
+
+.btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--btn-icon-size);
+  height: var(--btn-icon-size);
+}
+
+.btn--icon-only .btn__label {
+  display: none;
+}
+```
 
 ## Accessibility
 
@@ -222,23 +373,23 @@ Buttons come in three sizes to accommodate different use cases:
 
   <Accordion title="Screen Reader Support" icon="audio-description">
     - Use semantic `<button>` elements
-    - Include descriptive labels (avoid "Click here")
-    - For icon buttons, provide `aria-label`
-    - Use `aria-disabled="true"` for disabled state (not just visual styling)
-    - Add `aria-busy="true"` during loading states
+    - Include descriptive labels (the `label` property)
+    - For icon-only buttons (`icon only=true`), always provide `aria-label`
+    - Use `aria-disabled="true"` for disabled state
+    - Use `aria-pressed` for toggle-style active states
   </Accordion>
 
   <Accordion title="Color Contrast" icon="eye">
-    - **Primary button text**: 4.5:1 minimum contrast ratio ✓
-    - **Secondary button text**: 4.5:1 minimum contrast ratio ✓
-    - **Focus indicator**: 3:1 minimum contrast ratio ✓
-    - Don't rely on color alone to convey state
+    **Primary Default** (`#FCFCFC` on `#17171A`):
+    - Contrast ratio: ~19.8:1 ✓ Exceeds WCAG AAA (7:1)
+
+    Ensure all variant/type combinations meet WCAG AA minimum (4.5:1)
   </Accordion>
 
   <Accordion title="Touch Targets" icon="hand-pointer">
-    - **Minimum size**: 44px × 44px (WCAG 2.5.5)
-    - Ensure adequate spacing between adjacent buttons (8px minimum)
-    - Large buttons recommended for mobile interfaces
+    - **Small size**: 44px height ✓ Meets WCAG 2.5.5 (44×44px minimum)
+    - **Large size**: Exceeds minimum requirements
+    - Ensure adequate spacing (8px+) between adjacent buttons
   </Accordion>
 </AccordionGroup>
 
@@ -247,10 +398,10 @@ Buttons come in three sizes to accommodate different use cases:
 ```html
 <!-- Standard button -->
 <button type="button">
-  Save Changes
+  Submit
 </button>
 
-<!-- Icon button -->
+<!-- Icon-only button -->
 <button type="button" aria-label="Close dialog">
   <CloseIcon />
 </button>
@@ -260,9 +411,13 @@ Buttons come in three sizes to accommodate different use cases:
   Submit
 </button>
 
-<!-- Loading button -->
-<button type="button" aria-busy="true" disabled>
-  <Spinner /> Processing...
+<!-- Active/pressed button (for toggles) -->
+<button
+  type="button"
+  aria-pressed="true"
+  class="btn--active"
+>
+  Starred
 </button>
 
 <!-- Button that controls another element -->
@@ -275,179 +430,58 @@ Buttons come in three sizes to accommodate different use cases:
 </button>
 ```
 
-## Usage Examples
-
-### React/TypeScript
-
-```tsx
-import { Button } from '@/components/ui/button';
-
-// Primary button
-<Button variant="primary" size="medium">
-  Save Changes
-</Button>
-
-// Secondary with icon
-<Button variant="secondary" size="medium" icon={<PlusIcon />}>
-  Add Item
-</Button>
-
-// Loading state
-<Button variant="primary" loading disabled>
-  Processing...
-</Button>
-
-// Disabled
-<Button variant="primary" disabled>
-  Submit
-</Button>
-
-// Full width
-<Button variant="primary" fullWidth>
-  Continue
-</Button>
-
-// Icon only
-<Button
-  variant="ghost"
-  size="small"
-  iconOnly
-  aria-label="Delete item"
->
-  <TrashIcon />
-</Button>
-```
-
-### HTML/CSS
-
-```html
-<!-- Primary button -->
-<button class="btn btn-primary btn-medium">
-  Save Changes
-</button>
-
-<!-- Secondary button -->
-<button class="btn btn-secondary btn-medium">
-  Cancel
-</button>
-
-<!-- Button with icon -->
-<button class="btn btn-primary btn-medium">
-  <svg class="btn-icon">...</svg>
-  <span>Add Item</span>
-</button>
-
-<!-- Disabled button -->
-<button class="btn btn-primary btn-medium" disabled>
-  Submit
-</button>
-```
-
-### CSS Tokens
-
-```css
-/* Button base styles */
-.btn {
-  /* Spacing */
-  --btn-padding-y-sm: 8px;
-  --btn-padding-x-sm: 16px;
-  --btn-padding-y-md: 12px;
-  --btn-padding-x-md: 24px;
-  --btn-padding-y-lg: 16px;
-  --btn-padding-x-lg: 32px;
-
-  /* Border */
-  --btn-border-radius: 8px;
-  --btn-border-width: 1px;
-
-  /* Typography */
-  --btn-font-family: 'Inter', sans-serif;
-  --btn-font-weight: 600;
-  --btn-font-size-sm: 14px;
-  --btn-font-size-md: 16px;
-  --btn-font-size-lg: 18px;
-  --btn-line-height: 1.5;
-
-  /* Transitions */
-  --btn-transition: all 150ms ease-in-out;
-
-  /* Shadows */
-  --btn-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-  --btn-shadow-hover: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Primary variant */
-.btn-primary {
-  --btn-bg: #16A34A;
-  --btn-bg-hover: #15803D;
-  --btn-bg-active: #166534;
-  --btn-text: #FFFFFF;
-}
-
-/* Secondary variant */
-.btn-secondary {
-  --btn-bg: transparent;
-  --btn-bg-hover: #F0FDF4;
-  --btn-bg-active: #DCFCE7;
-  --btn-text: #15803D;
-  --btn-border: #16A34A;
-}
-```
-
 ## Best Practices
 
 <AccordionGroup>
-  <Accordion title="Button Labels" icon="tag">
-    ✅ **Do:**
-    - Use clear, action-oriented labels ("Save", "Delete", "Submit")
-    - Keep labels concise (1-3 words)
-    - Use sentence case
-    - Be specific about the action ("Delete Account" vs "Delete")
-
-    ❌ **Don't:**
-    - Use vague labels ("OK", "Click here")
-    - Write full sentences
-    - Use ALL CAPS
-    - Make users guess what will happen
-  </Accordion>
-
   <Accordion title="Button Hierarchy" icon="layer-group">
     ✅ **Do:**
-    - Use one primary button per screen/section
-    - Place primary button on the right in Western interfaces
-    - Use secondary/tertiary for less important actions
-    - Maintain consistent placement across the app
+    - Use one `variant="primary"` button per screen/section
+    - Use `variant="secondary"` for alternative actions
+    - Use `variant="ghost"` for tertiary or dismissive actions
+    - Use `variant="vote"` exclusively for voting interfaces
 
     ❌ **Don't:**
     - Use multiple primary buttons competing for attention
-    - Mix different button styles for the same action type
-    - Bury important actions in tertiary buttons
+    - Mix voting buttons with standard buttons inconsistently
   </Accordion>
 
-  <Accordion title="Loading States" icon="spinner">
+  <Accordion title="Icon Usage" icon="icons">
     ✅ **Do:**
-    - Disable button during loading
-    - Show loading indicator (spinner)
-    - Keep button label visible when possible
-    - Provide feedback when action completes
+    - Use icons to enhance button meaning
+    - Keep icon-only buttons for universally understood actions
+    - Always provide `aria-label` for icon-only buttons
+    - Use left icons for leading actions, right icons for trailing actions
 
     ❌ **Don't:**
-    - Allow multiple clicks during processing
-    - Remove all button content during loading
-    - Leave users wondering if action worked
+    - Use obscure icons without labels
+    - Overload buttons with both left and right icons unless necessary
+    - Use decorative icons that don't add meaning
   </Accordion>
 
-  <Accordion title="Disabled State" icon="ban">
+  <Accordion title="States" icon="toggle-on">
     ✅ **Do:**
-    - Use sparingly
-    - Provide tooltip explaining why it's disabled
-    - Enable as soon as conditions are met
-    - Consider hiding instead if never relevant
+    - Use `state="disabled"` sparingly with explanatory tooltips
+    - Use `state="active"` for currently selected options
+    - Use `state="pressed"` for momentary feedback
+    - Provide visual feedback for all interactive states
 
     ❌ **Don't:**
     - Disable without explanation
-    - Use as the default state
-    - Permanently disable interactive elements
+    - Use disabled as the default state
+    - Rely solely on color to indicate state (use icons/text too)
+  </Accordion>
+
+  <Accordion title="Voting Buttons" icon="check-to-slot">
+    ✅ **Do:**
+    - Use `variant="vote"` with appropriate `type` (for/against/neutral)
+    - Make voting options visually distinct
+    - Provide clear labels for voting actions
+    - Use `state="active"` to show current vote
+
+    ❌ **Don't:**
+    - Mix voting variants with standard button variants
+    - Use voting colors for non-voting actions
+    - Make voting buttons ambiguous
   </Accordion>
 </AccordionGroup>
 
@@ -457,68 +491,78 @@ import { Button } from '@/components/ui/button';
 
 ```tsx
 <div className="form-actions">
-  <Button variant="secondary" onClick={handleCancel}>
+  <Button variant="ghost" type="default" size="sm">
     Cancel
   </Button>
-  <Button variant="primary" type="submit">
+  <Button variant="primary" type="default" size="sm" htmlType="submit">
     Save Changes
   </Button>
 </div>
 ```
 
-### Confirmation Dialog
+### Voting Interface
 
 ```tsx
-<Dialog>
-  <DialogContent>
-    <DialogTitle>Delete Account</DialogTitle>
-    <DialogDescription>
-      This action cannot be undone. Are you sure?
-    </DialogDescription>
-    <DialogActions>
-      <Button variant="ghost" onClick={handleClose}>
-        Cancel
-      </Button>
-      <Button variant="primary" destructive onClick={handleDelete}>
-        Delete Account
-      </Button>
-    </DialogActions>
-  </DialogContent>
-</Dialog>
+<div className="voting-actions">
+  <Button
+    variant="vote"
+    type="for"
+    size="sm"
+    state={userVote === 'for' ? 'active' : 'default'}
+    onClick={handleVoteFor}
+  >
+    For ({forCount})
+  </Button>
+
+  <Button
+    variant="vote"
+    type="neutral"
+    size="sm"
+    state={userVote === 'neutral' ? 'active' : 'default'}
+    onClick={handleVoteNeutral}
+  >
+    Abstain ({neutralCount})
+  </Button>
+
+  <Button
+    variant="vote"
+    type="against"
+    size="sm"
+    state={userVote === 'against' ? 'active' : 'default'}
+    onClick={handleVoteAgainst}
+  >
+    Against ({againstCount})
+  </Button>
+</div>
 ```
 
-### Button Group
+### Button with Icons
 
 ```tsx
-<ButtonGroup>
-  <Button variant="secondary" icon={<AlignLeftIcon />} />
-  <Button variant="secondary" icon={<AlignCenterIcon />} />
-  <Button variant="secondary" icon={<AlignRightIcon />} />
-</ButtonGroup>
+// Left icon
+<Button variant="primary" type="default" size="sm" iconLeft={true}>
+  <PlusIcon /> Add Item
+</Button>
+
+// Right icon (e.g., dropdown)
+<Button variant="secondary" type="default" size="sm" iconRight={true}>
+  Options <ChevronDownIcon />
+</Button>
+
+// Icon only
+<Button
+  variant="ghost"
+  type="default"
+  size="sm"
+  iconOnly={true}
+  aria-label="More options"
+>
+  <MoreIcon />
+</Button>
 ```
-
-## Related Components
-
-<CardGroup cols={2}>
-  <Card title="Link" icon="link" href="/components/link">
-    For navigation within text or low-emphasis actions
-  </Card>
-
-  <Card title="Icon Button" icon="circle-dot" href="/components/icon-button">
-    Compact buttons with icon-only displays
-  </Card>
-
-  <Card title="Button Group" icon="object-group" href="/components/button-group">
-    Related buttons grouped together
-  </Card>
-
-  <Card title="Split Button" icon="split" href="/components/split-button">
-    Combination button with dropdown menu
-  </Card>
-</CardGroup>
 
 ---
 
 <Info>
-  This component documentation is automatically synced with Figma. The specifications and screenshots are updated every Monday at 9:00 AM UTC when the design is modified.
+  This component documentation is automatically synced with Figma. The specifications and screenshots are updated every Monday at 9:00 AM UTC when the design is modified. Last synced from Figma file **SXZAoGxCC0diTaGa9q5Vme** node **1042-143**.
 </Info>
