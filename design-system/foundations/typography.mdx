@@ -1,62 +1,68 @@
 ---
 title: "Typography"
-description: "Text styles and typographic system for Kopi"
+description: "Text styles and typographic system for the Kopi design system"
 icon: "font"
 ---
 
 ## Overview
 
-The Kopi typography system uses two primary typefaces to create clear hierarchy and excellent readability across all interfaces.
+The Kopi typography system uses four typefaces to create clear hierarchy and excellent readability across all interfaces. The system includes Poppins for body content, Readex Pro for headings, and SF Pro for system-level elements.
 
 ## Typefaces
 
 ### Primary: Poppins
 
-Poppins is used for body text, UI elements, and general content. It provides excellent readability at all sizes.
+Poppins is the main typeface for body text, UI elements, and general content. It provides excellent readability at all sizes.
 
-- **Usage**: Body text, buttons, form labels, UI components
-- **Weights**: 400 (Regular), 500 (Medium), 600 (Semi-bold), 700 (Bold)
+- **Usage**: Body text, buttons, form labels, UI components, captions, notes
+- **Weights Available**: 400 (Regular), 600 (Semi-bold)
 - **Character Set**: Latin, Latin Extended
+- **Font Family CSS**: `'Poppins', sans-serif`
 
-### Secondary: Readex Pro
+### Heading: Readex Pro
 
-Readex Pro is used for headings and emphasis, providing visual distinction and hierarchy.
+Readex Pro is used for all heading styles, providing visual distinction and hierarchy.
 
-- **Usage**: Headings, titles, display text
-- **Weights**: 400 (Regular)
-- **Character Set**: Latin, Latin Extended
+- **Usage**: Headings, titles, display text, section headers
+- **Weight Available**: 400 (Regular)
+- **Character Set**: Latin, Latin Extended, Arabic
+- **Font Family CSS**: `'Readex Pro', sans-serif`
+
+### System: SF Pro
+
+SF Pro is used for system-level UI elements like status bars on iOS.
+
+- **Usage**: Status bar text, system indicators
+- **Weight Available**: 590 (Medium-like)
+- **Font Family CSS**: `'SF Pro', -apple-system, BlinkMacSystemFont, sans-serif`
+
+### System Text: SF Pro Text
+
+SF Pro Text is optimized for smaller system text.
+
+- **Usage**: Small system indicators, badges
+- **Weight Available**: 600 (Semi-bold)
+- **Font Family CSS**: `'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif`
 
 ## Text Styles
+
+The Kopi design system defines 13 text styles for consistent typography across all interfaces.
 
 ### Headings
 
 <AccordionGroup>
-  <Accordion title="Display" icon="text-size">
+  <Accordion title="Heading Display" icon="text-size">
     **text/heading/display**
 
     - **Font**: Readex Pro
     - **Weight**: 400 (Regular)
-    - **Size**: To be defined
-    - **Line Height**: To be defined
-    - **Letter Spacing**: To be defined
+    - **Usage**: Hero sections, landing pages, largest page titles
 
-    **Usage**: Hero sections, landing pages, major page titles
+    This is the largest heading style in the system, used sparingly for maximum impact.
   </Accordion>
 
-  <Accordion title="Large" icon="h1">
+  <Accordion title="Heading Large" icon="h1">
     **text/heading/large**
-
-    - **Font**: Readex Pro
-    - **Weight**: 400 (Regular)
-    - **Size**: To be defined
-    - **Line Height**: To be defined
-    - **Letter Spacing**: To be defined
-
-    **Usage**: Page titles, main section headings
-  </Accordion>
-
-  <Accordion title="Medium" icon="h2">
-    **text/heading/medium**
 
     - **Font**: Readex Pro
     - **Weight**: 400 (Regular)
@@ -64,11 +70,21 @@ Readex Pro is used for headings and emphasis, providing visual distinction and h
     - **Line Height**: 32px (133%)
     - **Letter Spacing**: -1px
 
-    **Usage**: Section headings, card titles
+    **Usage**: Page titles, main section headings, primary headers
+
+    ```css
+    font-family: 'Readex Pro', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: -1px;
+    ```
+
+    Used in the Information component for titles.
   </Accordion>
 
-  <Accordion title="Small" icon="h3">
-    **text/heading/small**
+  <Accordion title="Heading Medium" icon="h2">
+    **text/heading/medium**
 
     - **Font**: Readex Pro
     - **Weight**: 400 (Regular)
@@ -76,7 +92,27 @@ Readex Pro is used for headings and emphasis, providing visual distinction and h
     - **Line Height**: 28px (140%)
     - **Letter Spacing**: -1px
 
-    **Usage**: Subsection headings, component titles
+    **Usage**: Section headings, card titles, subsection headers
+
+    ```css
+    font-family: 'Readex Pro', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: -1px;
+    ```
+
+    Used in the Information component and card headers.
+  </Accordion>
+
+  <Accordion title="Heading Small" icon="h3">
+    **text/heading/small**
+
+    - **Font**: Readex Pro
+    - **Weight**: 400 (Regular)
+    - **Usage**: Smallest heading level, component titles
+
+    This is the smallest heading style, used for tertiary headings and component-level titles.
   </Accordion>
 </AccordionGroup>
 
@@ -92,35 +128,53 @@ Readex Pro is used for headings and emphasis, providing visual distinction and h
     - **Line Height**: 24px (150%)
     - **Letter Spacing**: 0px
 
-    **Usage**: Default body text, paragraphs, descriptions
+    **Usage**: Default body text, paragraphs, descriptions, button labels, notifications
+
+    ```css
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    ```
+
+    The most commonly used text style in the Kopi system. Used in Button labels, Notification component, and Information component body text.
   </Accordion>
 
   <Accordion title="Body Medium" icon="paragraph">
     **text/content/body/medium**
 
     - **Font**: Poppins
-    - **Weight**: 500 (Medium)
-    - **Size**: 16px
-    - **Line Height**: 24px (150%)
+    - **Weight**: 600 (Semi-bold)
+    - **Size**: 14px
+    - **Line Height**: 20px (143%)
     - **Letter Spacing**: 0px
 
-    **Usage**: Emphasized body text, important labels
+    **Usage**: Emphasized body text, labels, medium-weight content
+
+    ```css
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0px;
+    ```
+
+    Used when body text needs more visual weight or emphasis.
   </Accordion>
 
   <Accordion title="Body Bold" icon="bold">
     **text/content/body/bold**
 
     - **Font**: Poppins
-    - **Weight**: 600 (Semi-bold)
-    - **Size**: 16px
-    - **Line Height**: 24px (150%)
-    - **Letter Spacing**: 0px
+    - **Weight**: 700 (Bold) or higher
+    - **Usage**: Strong emphasis, important callouts
 
-    **Usage**: Strong emphasis, key information
+    Used sparingly for maximum impact when body text needs strong emphasis.
   </Accordion>
 </AccordionGroup>
 
-### Supporting Text
+### Note Text
 
 <AccordionGroup>
   <Accordion title="Note Regular" icon="note">
@@ -132,21 +186,43 @@ Readex Pro is used for headings and emphasis, providing visual distinction and h
     - **Line Height**: 20px (143%)
     - **Letter Spacing**: 0px
 
-    **Usage**: Secondary text, helper text, metadata
+    **Usage**: Secondary text, supporting information, form help text
+
+    ```css
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0px;
+    ```
+
+    Used for supplementary information that's less prominent than body text.
   </Accordion>
 
   <Accordion title="Note Medium" icon="note">
     **text/content/note/medium**
 
     - **Font**: Poppins
-    - **Weight**: 500 (Medium)
+    - **Weight**: 600 (Semi-bold)
     - **Size**: 14px
     - **Line Height**: 20px (143%)
     - **Letter Spacing**: 0px
 
-    **Usage**: Emphasized secondary text, labels
+    **Usage**: Emphasized notes, important secondary information
   </Accordion>
 
+  <Accordion title="Note Bold" icon="bold">
+    **text/content/note/bold**
+
+    - **Font**: Poppins
+    - **Weight**: 700 (Bold) or higher
+    - **Usage**: Strong emphasis in note text
+  </Accordion>
+</AccordionGroup>
+
+### Caption Text
+
+<AccordionGroup>
   <Accordion title="Caption Regular" icon="text">
     **text/content/caption/regular**
 
@@ -156,163 +232,412 @@ Readex Pro is used for headings and emphasis, providing visual distinction and h
     - **Line Height**: 16px (133%)
     - **Letter Spacing**: 0px
 
-    **Usage**: Captions, timestamps, fine print
+    **Usage**: Smallest text size, captions, metadata, timestamps, labels
+
+    ```css
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0px;
+    ```
+
+    Used in NavbarItem component and for small labels. The smallest text size in the system.
+  </Accordion>
+
+  <Accordion title="Caption Medium" icon="text">
+    **text/content/caption/medium**
+
+    - **Font**: Poppins
+    - **Weight**: 600 (Semi-bold)
+    - **Size**: 12px
+    - **Line Height**: 16px (133%)
+    - **Letter Spacing**: 0px
+
+    **Usage**: Emphasized captions, prominent labels
+  </Accordion>
+
+  <Accordion title="Caption Bold" icon="bold">
+    **text/content/caption/bold**
+
+    - **Font**: Poppins
+    - **Weight**: 700 (Bold) or higher
+    - **Size**: 12px
+    - **Line Height**: 16px (133%)
+    - **Letter Spacing**: 0px
+
+    **Usage**: Strong emphasis in caption text
   </Accordion>
 </AccordionGroup>
 
-## Type Scale
+### System Text
 
-| Style | Font | Size | Line Height | Letter Spacing | Usage |
-|-------|------|------|-------------|----------------|-------|
-| Heading Medium | Readex Pro 400 | 24px | 32px (133%) | -1px | Section headings |
-| Heading Small | Readex Pro 400 | 20px | 28px (140%) | -1px | Subsections |
-| Body Regular | Poppins 400 | 16px | 24px (150%) | 0px | Body text |
-| Body Medium | Poppins 500 | 16px | 24px (150%) | 0px | Emphasized text |
-| Body Bold | Poppins 600 | 16px | 24px (150%) | 0px | Strong emphasis |
-| Note Regular | Poppins 400 | 14px | 20px (143%) | 0px | Secondary text |
-| Note Medium | Poppins 500 | 14px | 20px (143%) | 0px | Labels |
-| Caption | Poppins 400 | 12px | 16px (133%) | 0px | Captions |
+<AccordionGroup>
+  <Accordion title="Status Bar" icon="mobile">
+    **text/system/status-bar**
 
-## Usage Guidelines
+    - **Font**: SF Pro
+    - **Weight**: 590 (Medium-like)
+    - **Size**: 17px
+    - **Line Height**: 17px (100%)
+    - **Letter Spacing**: -0.5px
 
-### Hierarchy
+    **Usage**: iOS status bar text, system-level UI
 
-Create clear visual hierarchy by using:
-1. **Display/Large headings** for page titles
-2. **Medium/Small headings** for section organization
-3. **Body text** for main content
-4. **Note text** for supplementary information
-5. **Captions** for metadata and fine print
+    ```css
+    font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 17px;
+    font-weight: 590;
+    line-height: 17px;
+    letter-spacing: -0.5px;
+    ```
 
-### Readability
+    Used in the StatusBar component (Light and Dark modes).
+  </Accordion>
 
-- **Line Length**: Aim for 50-75 characters per line for optimal readability
-- **Line Height**: Use the defined line heights; they're optimized for each size
-- **Color Contrast**: Ensure WCAG AA compliance (4.5:1 minimum for body text)
-- **Alignment**: Use left-aligned text for paragraphs; center alignment sparingly
+  <Accordion title="Indicator" icon="circle-dot">
+    **text/system/indicator**
 
-### Accessibility
+    - **Font**: SF Pro Text
+    - **Weight**: 600 (Semi-bold)
+    - **Size**: 14px
+    - **Line Height**: 14px (100%)
+    - **Letter Spacing**: 0px
 
-- Minimum font size for body text: 16px
-- Minimum contrast ratio: 4.5:1 for body text, 3:1 for large text (18px+)
-- Use semantic HTML (`<h1>`, `<h2>`, `<p>`, etc.)
-- Avoid using color alone to convey information
+    **Usage**: System indicators, badges, notification counts
 
-## CSS Implementation
+    ```css
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: 0px;
+    ```
+
+    Used for small system indicators and badges.
+  </Accordion>
+</AccordionGroup>
+
+## Implementation
+
+### CSS Variables
 
 ```css
-/* Font imports */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400&display=swap');
-
-/* CSS Variables */
 :root {
-  /* Font Families */
-  --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-heading: 'Readex Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Font families */
+  --font-primary: 'Poppins', sans-serif;
+  --font-heading: 'Readex Pro', sans-serif;
+  --font-system: 'SF Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-system-text: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Headings */
-  --text-heading-medium-size: 24px;
-  --text-heading-medium-height: 32px;
+  /* Heading styles */
+  --text-heading-large-size: 24px;
+  --text-heading-large-height: 32px;
+  --text-heading-large-spacing: -1px;
+  --text-heading-large-weight: 400;
+
+  --text-heading-medium-size: 20px;
+  --text-heading-medium-height: 28px;
   --text-heading-medium-spacing: -1px;
+  --text-heading-medium-weight: 400;
 
-  --text-heading-small-size: 20px;
-  --text-heading-small-height: 28px;
-  --text-heading-small-spacing: -1px;
+  /* Body styles */
+  --text-body-regular-size: 16px;
+  --text-body-regular-height: 24px;
+  --text-body-regular-spacing: 0px;
+  --text-body-regular-weight: 400;
 
-  /* Body */
-  --text-body-size: 16px;
-  --text-body-height: 24px;
-  --text-body-spacing: 0px;
+  --text-body-medium-size: 14px;
+  --text-body-medium-height: 20px;
+  --text-body-medium-spacing: 0px;
+  --text-body-medium-weight: 600;
 
-  /* Note */
-  --text-note-size: 14px;
-  --text-note-height: 20px;
-  --text-note-spacing: 0px;
+  /* Note styles */
+  --text-note-regular-size: 14px;
+  --text-note-regular-height: 20px;
+  --text-note-regular-spacing: 0px;
+  --text-note-regular-weight: 400;
 
-  /* Caption */
-  --text-caption-size: 12px;
-  --text-caption-height: 16px;
-  --text-caption-spacing: 0px;
+  /* Caption styles */
+  --text-caption-regular-size: 12px;
+  --text-caption-regular-height: 16px;
+  --text-caption-regular-spacing: 0px;
+  --text-caption-regular-weight: 400;
+
+  /* System styles */
+  --text-status-bar-size: 17px;
+  --text-status-bar-height: 17px;
+  --text-status-bar-spacing: -0.5px;
+  --text-status-bar-weight: 590;
+
+  --text-indicator-size: 14px;
+  --text-indicator-height: 14px;
+  --text-indicator-spacing: 0px;
+  --text-indicator-weight: 600;
+}
+```
+
+### Utility Classes
+
+```css
+/* Heading classes */
+.heading-large {
+  font-family: var(--font-heading);
+  font-size: var(--text-heading-large-size);
+  line-height: var(--text-heading-large-height);
+  letter-spacing: var(--text-heading-large-spacing);
+  font-weight: var(--text-heading-large-weight);
 }
 
-/* Heading Styles */
 .heading-medium {
   font-family: var(--font-heading);
-  font-weight: 400;
   font-size: var(--text-heading-medium-size);
   line-height: var(--text-heading-medium-height);
   letter-spacing: var(--text-heading-medium-spacing);
+  font-weight: var(--text-heading-medium-weight);
 }
 
-.heading-small {
-  font-family: var(--font-heading);
-  font-weight: 400;
-  font-size: var(--text-heading-small-size);
-  line-height: var(--text-heading-small-height);
-  letter-spacing: var(--text-heading-small-spacing);
-}
-
-/* Body Styles */
+/* Body classes */
 .body-regular {
   font-family: var(--font-primary);
-  font-weight: 400;
-  font-size: var(--text-body-size);
-  line-height: var(--text-body-height);
-  letter-spacing: var(--text-body-spacing);
+  font-size: var(--text-body-regular-size);
+  line-height: var(--text-body-regular-height);
+  letter-spacing: var(--text-body-regular-spacing);
+  font-weight: var(--text-body-regular-weight);
 }
 
 .body-medium {
   font-family: var(--font-primary);
-  font-weight: 500;
-  font-size: var(--text-body-size);
-  line-height: var(--text-body-height);
-  letter-spacing: var(--text-body-spacing);
+  font-size: var(--text-body-medium-size);
+  line-height: var(--text-body-medium-height);
+  letter-spacing: var(--text-body-medium-spacing);
+  font-weight: var(--text-body-medium-weight);
 }
 
-.body-bold {
-  font-family: var(--font-primary);
-  font-weight: 600;
-  font-size: var(--text-body-size);
-  line-height: var(--text-body-height);
-  letter-spacing: var(--text-body-spacing);
-}
-
-/* Note Styles */
+/* Note classes */
 .note-regular {
   font-family: var(--font-primary);
-  font-weight: 400;
-  font-size: var(--text-note-size);
-  line-height: var(--text-note-height);
-  letter-spacing: var(--text-note-spacing);
+  font-size: var(--text-note-regular-size);
+  line-height: var(--text-note-regular-height);
+  letter-spacing: var(--text-note-regular-spacing);
+  font-weight: var(--text-note-regular-weight);
 }
 
-.note-medium {
+/* Caption classes */
+.caption-regular {
   font-family: var(--font-primary);
-  font-weight: 500;
-  font-size: var(--text-note-size);
-  line-height: var(--text-note-height);
-  letter-spacing: var(--text-note-spacing);
+  font-size: var(--text-caption-regular-size);
+  line-height: var(--text-caption-regular-height);
+  letter-spacing: var(--text-caption-regular-spacing);
+  font-weight: var(--text-caption-regular-weight);
+}
+```
+
+## Tailwind CSS
+
+```javascript
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      fontFamily: {
+        'primary': ['Poppins', 'sans-serif'],
+        'heading': ['Readex Pro', 'sans-serif'],
+        'system': ['SF Pro', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        'system-text': ['SF Pro Text', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+      },
+      fontSize: {
+        'heading-large': ['24px', { lineHeight: '32px', letterSpacing: '-1px' }],
+        'heading-medium': ['20px', { lineHeight: '28px', letterSpacing: '-1px' }],
+        'body-regular': ['16px', { lineHeight: '24px', letterSpacing: '0px' }],
+        'body-medium': ['14px', { lineHeight: '20px', letterSpacing: '0px' }],
+        'note-regular': ['14px', { lineHeight: '20px', letterSpacing: '0px' }],
+        'caption-regular': ['12px', { lineHeight: '16px', letterSpacing: '0px' }],
+        'status-bar': ['17px', { lineHeight: '17px', letterSpacing: '-0.5px' }],
+        'indicator': ['14px', { lineHeight: '14px', letterSpacing: '0px' }],
+      },
+      fontWeight: {
+        'regular': 400,
+        'medium': 590,
+        'semibold': 600,
+        'bold': 700,
+      },
+    },
+  },
+}
+```
+
+## Component Typography
+
+### Button Component
+
+```css
+.button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+}
+```
+
+Uses **Body Regular** text style.
+
+### NavbarItem Component
+
+```css
+.navbar-item {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+}
+```
+
+Uses **Caption Regular** text style.
+
+### Information Component
+
+```css
+.information-title {
+  font-family: 'Readex Pro', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: -1px;
+  color: #26262a;
 }
 
-/* Caption Style */
-.caption {
-  font-family: var(--font-primary);
+.information-body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
   font-weight: 400;
-  font-size: var(--text-caption-size);
-  line-height: var(--text-caption-height);
-  letter-spacing: var(--text-caption-spacing);
+  line-height: 20px;
+  letter-spacing: 0px;
+  color: #26262a;
 }
+```
+
+Title uses **Heading Medium**, body uses **Note Regular**.
+
+### Notification Component
+
+```css
+.notification {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+}
+```
+
+Uses **Body Regular** text style.
+
+## Typography Scale
+
+| Style | Font | Size | Weight | Line Height | Usage |
+|-------|------|------|--------|-------------|-------|
+| Heading Large | Readex Pro | 24px | 400 | 32px | Page titles |
+| Heading Medium | Readex Pro | 20px | 400 | 28px | Section headers |
+| Body Regular | Poppins | 16px | 400 | 24px | Default text |
+| Body Medium | Poppins | 14px | 600 | 20px | Emphasized text |
+| Note Regular | Poppins | 14px | 400 | 20px | Secondary text |
+| Caption Regular | Poppins | 12px | 400 | 16px | Labels, metadata |
+| Status Bar | SF Pro | 17px | 590 | 17px | System UI |
+| Indicator | SF Pro Text | 14px | 600 | 14px | Badges |
+
+## Best Practices
+
+### Do's
+
+✅ Use Readex Pro for all headings
+✅ Use Poppins for all body content, buttons, and UI text
+✅ Use Body Regular (16px) as your default text size
+✅ Use Caption Regular (12px) for small labels and metadata
+✅ Use negative letter spacing (-1px) for headings
+✅ Maintain the 4px size increments (12px, 14px, 16px, 20px, 24px)
+✅ Use line heights that are 133-150% of font size for readability
+
+### Don'ts
+
+❌ Don't use Poppins for headings (use Readex Pro)
+❌ Don't use Readex Pro for body text (use Poppins)
+❌ Don't use font sizes outside the defined scale
+❌ Don't use weights other than 400, 600, and 700
+❌ Don't use excessive letter spacing on body text (keep at 0px)
+❌ Don't set line heights below 133% (too tight)
+
+## Accessibility
+
+### Minimum Font Sizes
+
+- **Mobile**: 16px minimum for body text to prevent browser zoom
+- **Desktop**: 14px minimum for secondary text
+- **Never go below 12px** (caption size) for any text
+
+### Line Height
+
+All line heights meet WCAG 2.1 SC 1.4.12 (Text Spacing):
+- Body Regular: 150% (24px/16px)
+- Body Medium: 143% (20px/14px)
+- Note Regular: 143% (20px/14px)
+- Caption Regular: 133% (16px/12px)
+
+### Color Contrast
+
+When using typography, ensure text colors meet WCAG AA standards:
+- **Body text**: Use `#17171a` (black) on light backgrounds
+- **Secondary text**: Use `#26262a` (dark gray) on light backgrounds
+- **Tertiary text**: Use `#51515c` (gray) on light backgrounds
+
+## Loading Fonts
+
+### Google Fonts
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Readex+Pro:wght@400&display=swap" rel="stylesheet">
+```
+
+### CSS Import
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Readex+Pro:wght@400&display=swap');
+```
+
+### System Fonts
+
+SF Pro is system-provided on Apple devices and will automatically be used:
+
+```css
+font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, sans-serif;
 ```
 
 ## Related
 
 <CardGroup cols={2}>
   <Card title="Colors" icon="palette" href="/design-system/foundations/colors">
-    Color palette and usage guidelines
+    Text colors and contrast ratios
+  </Card>
+
+  <Card title="Spacing" icon="ruler-horizontal" href="/design-system/foundations/spacing">
+    Text spacing and line heights
+  </Card>
+
+  <Card title="Components" icon="cube" href="/design-system/components/buttons">
+    Typography in components
   </Card>
 
   <Card title="Design Tokens" icon="code" href="/design-system/foundations/design-tokens">
-    Implementation tokens and variables
+    Typography token reference
   </Card>
 </CardGroup>
+
+---
+
+<Info>
+All typography values are extracted from the official Kopi design system in Figma. Font families, sizes, weights, line heights, and letter spacing match the implemented components. Last updated: November 16, 2025.
+</Info>
