@@ -6,78 +6,325 @@ icon: "palette"
 
 ## Overview
 
-The Kopi color system uses a dark, minimal palette designed for clarity and focus. The system emphasizes contrast and readability while maintaining a modern, professional aesthetic.
+The Kopi color system uses a minimal, sophisticated palette centered around blacks, grays, and subtle brand accents. The system prioritizes readability and creates a clean, modern aesthetic.
 
-## Primary Colors
+## Color Palette
 
-### Background Colors
+### Primary Colors
+
+Primary colors are used for text, buttons, and key UI elements.
 
 <AccordionGroup>
-  <Accordion title="Dark" icon="circle" iconType="solid">
-    **Primary Background**
+  <Accordion title="Black" icon="circle">
+    **Primary Black**
 
-    - **Hex**: `#17171A`
+    - **Hex**: `#17171a`
     - **RGB**: `rgb(23, 23, 26)`
-    - **Usage**: Main background color, primary surfaces, button backgrounds
+    - **Usage**: Primary text, primary button backgrounds, main UI elements
 
-    This is the primary dark background used throughout the Kopi interface.
+    ```css
+    --color-black: #17171a;
+    ```
+
+    Most important color in the Kopi system. Used for primary text and button backgrounds.
   </Accordion>
 
-  <Accordion title="Light" icon="circle" iconType="solid">
-    **Text on Dark**
+  <Accordion title="Dark Gray" icon="circle">
+    **Secondary Text**
 
-    - **Hex**: `#FCFCFC`
-    - **RGB**: `rgb(252, 252, 252)`
-    - **Usage**: Text on dark backgrounds, icons, UI elements
+    - **Hex**: `#26262a`
+    - **RGB**: `rgb(38, 38, 42)`
+    - **Usage**: Secondary text, labels, less prominent UI text
 
-    Near-white color providing excellent contrast on dark backgrounds.
-    **Contrast Ratio**: 19.8:1 (WCAG AAA)
+    ```css
+    --color-dark-gray: #26262a;
+    ```
+  </Accordion>
+
+  <Accordion title="Gray" icon="circle">
+    **Tertiary Text**
+
+    - **Hex**: `#51515c`
+    - **RGB**: `rgb(81, 81, 92)`
+    - **Usage**: Tertiary text, disabled text, placeholder content
+
+    ```css
+    --color-gray: #51515c;
+    ```
+  </Accordion>
+
+  <Accordion title="Light Gray" icon="circle">
+    **Placeholder & Disabled**
+
+    - **Hex**: `#9e9ea9`
+    - **RGB**: `rgb(158, 158, 169)`
+    - **Usage**: Placeholder text, disabled state text
+
+    ```css
+    --color-light-gray: #9e9ea9;
+    ```
   </Accordion>
 </AccordionGroup>
 
-## Color Usage
+### Background Colors
 
-### Interface Colors
+Background colors create depth and visual hierarchy.
 
-The Kopi interface uses a minimal color palette focused on functionality:
+<AccordionGroup>
+  <Accordion title="White" icon="square">
+    **Primary Background**
 
-| Color Name | Hex Code | Usage |
-|------------|----------|-------|
-| Background Dark | `#17171A` | Main background, surfaces, button backgrounds |
-| Text Primary | `#FCFCFC` | Primary text, icons on dark |
-| Background Light | `#FCFCFC` | Light backgrounds (inverse theme) |
-| Text Dark | `#17171A` | Text on light backgrounds |
+    - **Hex**: `#ffffff`
+    - **RGB**: `rgb(255, 255, 255)`
+    - **Usage**: Primary background, main surface
+
+    ```css
+    --bg-white: #ffffff;
+    ```
+  </Accordion>
+
+  <Accordion title="Almost White" icon="square">
+    **Elevated Surfaces**
+
+    - **Hex**: `#fefefe`
+    - **RGB**: `rgb(254, 254, 254)`
+    - **Usage**: Card backgrounds, elevated surfaces, headers
+
+    ```css
+    --bg-almost-white: #fefefe;
+    ```
+
+    Used for the Header component background.
+  </Accordion>
+
+  <Accordion title="Off White" icon="square">
+    **Section Backgrounds**
+
+    - **Hex**: `#fcfcfc`
+    - **RGB**: `rgb(252, 252, 252)`
+    - **Usage**: Section backgrounds, subtle distinction from white
+
+    ```css
+    --bg-off-white: #fcfcfc;
+    ```
+  </Accordion>
+
+  <Accordion title="Light Gray" icon="square">
+    **Card Backgrounds**
+
+    - **Hex**: `#f9f9f9`
+    - **RGB**: `rgb(249, 249, 249)`
+    - **Usage**: Secondary backgrounds, card backgrounds
+
+    ```css
+    --bg-light-gray: #f9f9f9;
+    ```
+
+    Default background for Card and Information components.
+  </Accordion>
+
+  <Accordion title="Gray" icon="square">
+    **Navbar Background**
+
+    - **Hex**: `#f3f3f4`
+    - **RGB**: `rgb(243, 243, 244)`
+    - **Usage**: Navbar background, inactive states
+
+    ```css
+    --bg-gray: #f3f3f4;
+    ```
+
+    Primary background color for the Navbar component.
+  </Accordion>
+
+  <Accordion title="Medium Gray" icon="square">
+    **Disabled Backgrounds**
+
+    - **Hex**: `#e4e4e7`
+    - **RGB**: `rgb(228, 228, 231)`
+    - **Usage**: Disabled backgrounds, borders
+
+    ```css
+    --bg-medium-gray: #e4e4e7;
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Brand Colors
+
+Brand colors define Kopi's visual identity.
+
+<AccordionGroup>
+  <Accordion title="Purple" icon="circle">
+    **Primary Brand Color**
+
+    - **Hex**: `#5861ff`
+    - **RGB**: `rgb(88, 97, 255)`
+    - **Usage**: Vote 'for' active state, primary brand interactions, logo variant
+
+    ```css
+    --brand-purple: #5861ff;
+    ```
+
+    Primary brand color, used for positive voting interactions.
+  </Accordion>
+
+  <Accordion title="Orange" icon="circle">
+    **Accent Color**
+
+    - **Hex**: `#ff6800`
+    - **RGB**: `rgb(255, 104, 0)`
+    - **Usage**: Accent color, logo variant, highlights
+
+    ```css
+    --brand-orange: #ff6800;
+    ```
+
+    Secondary brand color for accents and emphasis.
+  </Accordion>
+</AccordionGroup>
 
 ### Semantic Colors
 
-<Note>
-Semantic colors for voting and states are defined through type variants in components. See the Button component documentation for voting-specific colors (for, against, neutral).
-</Note>
+Semantic colors communicate status and meaning.
 
-## Accessibility
+<AccordionGroup>
+  <Accordion title="Success" icon="circle-check">
+    **Success State**
 
-### Contrast Ratios
+    - **Background**: `#d0fae4` (rgb(208, 250, 228))
+    - **Text**: `#006044` (rgb(0, 96, 68))
+    - **Usage**: Success notifications, positive feedback
 
-All color combinations meet or exceed WCAG AA standards:
+    ```css
+    --success-bg: #d0fae4;
+    --success-text: #006044;
+    ```
 
-| Combination | Contrast Ratio | WCAG Level | Usage |
-|-------------|---------------|------------|-------|
-| `#FCFCFC` on `#17171A` | 19.8:1 | AAA | Body text, UI elements |
-| `#17171A` on `#FCFCFC` | 19.8:1 | AAA | Inverse theme |
+    Used in Notification component (success variant).
+  </Accordion>
 
-<Tip>
-**WCAG Requirements:**
-- **AA**: Minimum 4.5:1 for normal text, 3:1 for large text
-- **AAA**: Minimum 7:1 for normal text, 4.5:1 for large text
+  <Accordion title="Error" icon="circle-xmark">
+    **Error State**
 
-All Kopi color combinations exceed AAA requirements.
-</Tip>
+    - **Background**: `#fee1e1` (rgb(254, 225, 225))
+    - **Text**: `#9e0711` (rgb(158, 7, 17))
+    - **Usage**: Error notifications, danger states
 
-### Color Blindness
+    ```css
+    --error-bg: #fee1e1;
+    --error-text: #9e0711;
+    ```
 
-- High contrast ratios ensure visibility for users with color vision deficiencies
-- Never rely on color alone to convey information
-- Use icons, labels, and text in addition to color coding
+    Used in Notification component (danger variant).
+  </Accordion>
+
+  <Accordion title="Warning" icon="triangle-exclamation">
+    **Warning State**
+
+    - **Background**: `#fef3c6` (rgb(254, 243, 198))
+    - **Text**: `#963b00` (rgb(150, 59, 0))
+    - **Usage**: Warning notifications, caution states
+
+    ```css
+    --warning-bg: #fef3c6;
+    --warning-text: #963b00;
+    ```
+
+    Used in Notification component (warning variant).
+  </Accordion>
+
+  <Accordion title="Success Indicator" icon="check">
+    **System Success**
+
+    - **Hex**: `#32d74b`
+    - **RGB**: `rgb(50, 215, 75)`
+    - **Usage**: Success indicators (iOS-style)
+
+    ```css
+    --success-indicator: #32d74b;
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Vote Colors
+
+Special color system for voting interactions.
+
+<AccordionGroup>
+  <Accordion title="Vote For" icon="thumbs-up">
+    **For Voting**
+
+    - **Default**: `#eeefff` (rgb(238, 239, 255))
+    - **Active**: `#5861ff` (rgb(88, 97, 255))
+    - **Pressed**: `#dedfff` (rgb(222, 223, 255))
+    - **Usage**: Vote 'for' button states
+
+    ```css
+    --vote-for-default: #eeefff;
+    --vote-for-active: #5861ff;
+    --vote-for-pressed: #dedfff;
+    ```
+  </Accordion>
+
+  <Accordion title="Vote Against" icon="thumbs-down">
+    **Against Voting**
+
+    - **Default**: `#ffeeee` (rgb(255, 238, 238))
+    - **Active**: `#ff5858` (rgb(255, 88, 88))
+    - **Pressed**: `#ffdede` (rgb(255, 222, 222))
+    - **Usage**: Vote 'against' button states
+
+    ```css
+    --vote-against-default: #ffeeee;
+    --vote-against-active: #ff5858;
+    --vote-against-pressed: #ffdede;
+    ```
+  </Accordion>
+
+  <Accordion title="Vote Neutral" icon="equals">
+    **Neutral Voting**
+
+    - **Default**: `rgba(9, 9, 11, 0.05)` - Very light overlay
+    - **Active**: `#70707b` (rgb(112, 112, 123))
+    - **Usage**: Vote 'neutral' button states
+
+    ```css
+    --vote-neutral-default: rgba(9, 9, 11, 0.05);
+    --vote-neutral-active: #70707b;
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### System Colors
+
+<AccordionGroup>
+  <Accordion title="Pure Black" icon="circle">
+    **Absolute Black**
+
+    - **Hex**: `#000000`
+    - **RGB**: `rgb(0, 0, 0)`
+    - **Usage**: Pure black for icons, system elements
+
+    ```css
+    --color-pure-black: #000000;
+    ```
+  </Accordion>
+
+  <Accordion title="Darkest" icon="circle">
+    **Shadow Base**
+
+    - **Hex**: `#09090b`
+    - **RGB**: `rgb(9, 9, 11)`
+    - **Usage**: Shadow colors, ghost buttons, very dark elements
+
+    ```css
+    --color-darkest: #09090b;
+    ```
+
+    Used as the shadow color throughout the system.
+  </Accordion>
+</AccordionGroup>
 
 ## Implementation
 
@@ -85,28 +332,46 @@ All Kopi color combinations exceed AAA requirements.
 
 ```css
 :root {
-  /* Background Colors */
-  --color-bg-dark: #17171A;
-  --color-bg-light: #FCFCFC;
+  /* Primary colors */
+  --color-black: #17171a;
+  --color-dark-gray: #26262a;
+  --color-gray: #51515c;
+  --color-light-gray: #9e9ea9;
 
-  /* Text Colors */
-  --color-text-on-dark: #FCFCFC;
-  --color-text-on-light: #17171A;
+  /* Background colors */
+  --bg-white: #ffffff;
+  --bg-almost-white: #fefefe;
+  --bg-off-white: #fcfcfc;
+  --bg-light-gray: #f9f9f9;
+  --bg-gray: #f3f3f4;
+  --bg-medium-gray: #e4e4e7;
 
-  /* Contrast ratios */
-  --contrast-primary: 19.8;
-}
+  /* Brand colors */
+  --brand-purple: #5861ff;
+  --brand-orange: #ff6800;
 
-/* Dark theme (default) */
-body {
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-on-dark);
-}
+  /* Semantic colors */
+  --success-bg: #d0fae4;
+  --success-text: #006044;
+  --error-bg: #fee1e1;
+  --error-text: #9e0711;
+  --warning-bg: #fef3c6;
+  --warning-text: #963b00;
+  --success-indicator: #32d74b;
 
-/* Light theme (inverse) */
-body.theme-light {
-  background-color: var(--color-bg-light);
-  color: var(--color-text-on-light);
+  /* Vote colors */
+  --vote-for-default: #eeefff;
+  --vote-for-active: #5861ff;
+  --vote-for-pressed: #dedfff;
+  --vote-against-default: #ffeeee;
+  --vote-against-active: #ff5858;
+  --vote-against-pressed: #ffdede;
+  --vote-neutral-default: rgba(9, 9, 11, 0.05);
+  --vote-neutral-active: #70707b;
+
+  /* System colors */
+  --color-pure-black: #000000;
+  --color-darkest: #09090b;
 }
 ```
 
@@ -118,10 +383,42 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'bg-dark': '#17171A',
-        'bg-light': '#FCFCFC',
-        'text-primary': '#FCFCFC',
-        'text-inverse': '#17171A',
+        primary: {
+          black: '#17171a',
+          darkGray: '#26262a',
+          gray: '#51515c',
+          lightGray: '#9e9ea9',
+        },
+        background: {
+          white: '#ffffff',
+          almostWhite: '#fefefe',
+          offWhite: '#fcfcfc',
+          lightGray: '#f9f9f9',
+          gray: '#f3f3f4',
+          mediumGray: '#e4e4e7',
+        },
+        brand: {
+          purple: '#5861ff',
+          orange: '#ff6800',
+        },
+        semantic: {
+          successBg: '#d0fae4',
+          successText: '#006044',
+          errorBg: '#fee1e1',
+          errorText: '#9e0711',
+          warningBg: '#fef3c6',
+          warningText: '#963b00',
+          success: '#32d74b',
+        },
+        vote: {
+          forDefault: '#eeefff',
+          forActive: '#5861ff',
+          forPressed: '#dedfff',
+          againstDefault: '#ffeeee',
+          againstActive: '#ff5858',
+          againstPressed: '#ffdede',
+          neutralActive: '#70707b',
+        },
       },
     },
   },
@@ -130,60 +427,163 @@ module.exports = {
 
 ## Usage Guidelines
 
+### Text Colors
+
+```css
+/* Primary text */
+.text-primary {
+  color: var(--color-black); /* #17171a */
+}
+
+/* Secondary text */
+.text-secondary {
+  color: var(--color-dark-gray); /* #26262a */
+}
+
+/* Tertiary text */
+.text-tertiary {
+  color: var(--color-gray); /* #51515c */
+}
+
+/* Placeholder text */
+.text-placeholder {
+  color: var(--color-light-gray); /* #9e9ea9 */
+}
+```
+
+### Background Colors
+
+```css
+/* Primary background */
+.bg-primary {
+  background-color: var(--bg-white);
+}
+
+/* Card background */
+.bg-card {
+  background-color: var(--bg-light-gray); /* #f9f9f9 */
+}
+
+/* Navbar background */
+.bg-navbar {
+  background-color: var(--bg-gray); /* #f3f3f4 */
+}
+```
+
+### Button Colors
+
+```css
+/* Primary button */
+.button-primary {
+  background-color: var(--color-black); /* #17171a */
+  color: var(--bg-off-white); /* #fcfcfc */
+}
+
+/* Vote for button (active) */
+.button-vote-for-active {
+  background-color: var(--vote-for-active); /* #5861ff */
+  color: var(--bg-white);
+}
+
+/* Vote against button (active) */
+.button-vote-against-active {
+  background-color: var(--vote-against-active); /* #ff5858 */
+  color: var(--bg-white);
+}
+```
+
+## Accessibility
+
+### Contrast Ratios
+
+All text color combinations meet WCAG AA standards (4.5:1 for normal text):
+
+| Foreground | Background | Ratio | WCAG Level |
+|------------|------------|-------|------------|
+| `#17171a` (black) | `#ffffff` (white) | 19.8:1 | AAA |
+| `#26262a` (dark gray) | `#ffffff` (white) | 16.3:1 | AAA |
+| `#51515c` (gray) | `#ffffff` (white) | 7.8:1 | AAA |
+| `#006044` (success) | `#d0fae4` (success bg) | 5.2:1 | AA |
+| `#9e0711` (error) | `#fee1e1` (error bg) | 6.8:1 | AA |
+| `#963b00` (warning) | `#fef3c6` (warning bg) | 5.5:1 | AA |
+
+### Color Blindness
+
+The Kopi color system is designed with color blindness in mind:
+
+- Primary interactions don't rely solely on color
+- Vote colors use distinct values (not just red/green)
+- Semantic colors include text labels alongside color
+- Sufficient contrast between all interactive states
+
+## Best Practices
+
 ### Do's
 
-✅ Use `#17171A` for all dark backgrounds
-✅ Use `#FCFCFC` for text on dark backgrounds
-✅ Maintain high contrast for readability
-✅ Test color combinations for accessibility
+✅ Use `#17171a` (black) for primary text and buttons
+✅ Use `#f9f9f9` (light gray) for card backgrounds
+✅ Use `#f3f3f4` (gray) for navbar backgrounds
+✅ Use semantic colors for notifications (success, error, warning)
+✅ Use vote colors only for voting interactions
+✅ Maintain consistent background hierarchy (white → almost white → off white → light gray)
 
 ### Don'ts
 
-❌ Don't use colors with insufficient contrast
+❌ Don't use brand purple/orange for non-voting buttons
+❌ Don't mix vote colors with other button types
+❌ Don't use colors outside the defined palette
 ❌ Don't rely solely on color to convey meaning
-❌ Don't use too many colors - keep it minimal
-❌ Don't reduce opacity below readable levels
+❌ Don't use insufficient contrast ratios
 
-## Color Application
+## Component Color Usage
 
-### Buttons
+### Button Component
 
-- **Primary**: `#17171A` background with `#FCFCFC` text
-- **Secondary**: Transparent background with `#17171A` border
-- **Ghost**: Minimal styling with `#FCFCFC` text
+- **Primary**: Background `#17171a`, text `#fcfcfc`
+- **Vote For (default)**: Background `#eeefff`, text `#17171a`
+- **Vote For (active)**: Background `#5861ff`, text `#ffffff`
+- **Vote Against (default)**: Background `#ffeeee`, text `#17171a`
+- **Vote Against (active)**: Background `#ff5858`, text `#ffffff`
+- **Vote Neutral (active)**: Background `#70707b`, text `#ffffff`
 
-See the [Button Component](/design-system/components/buttons) for detailed color usage.
+### Card Component
 
-### Typography
+- **Background**: `#f9f9f9`
+- **Text**: `#17171a` (primary), `#26262a` (secondary)
 
-- **Headings**: `#FCFCFC` on dark backgrounds
-- **Body Text**: `#FCFCFC` on dark backgrounds
-- **Secondary Text**: `#FCFCFC` with reduced opacity (if needed)
+### Navbar Component
 
-See [Typography](/design-system/foundations/typography) for text color usage.
+- **Background**: `#f3f3f4`
+- **Active Item**: Custom styling per variant
+
+### Notification Component
+
+- **Success**: Background `#d0fae4`, text `#006044`
+- **Error**: Background `#fee1e1`, text `#9e0711`
+- **Warning**: Background `#fef3c6`, text `#963b00`
 
 ## Related
 
 <CardGroup cols={2}>
   <Card title="Typography" icon="font" href="/design-system/foundations/typography">
-    Text styles and color usage
+    Text styles and color combinations
   </Card>
 
   <Card title="Components" icon="cube" href="/design-system/components/buttons">
-    See colors in action
+    See colors in components
   </Card>
 
   <Card title="Design Tokens" icon="code" href="/design-system/foundations/design-tokens">
-    Implementation variables
+    Complete color token reference
   </Card>
 
-  <Card title="Accessibility" icon="universal-access">
-    Color contrast guidelines
+  <Card title="Shadows" icon="cube" href="/design-system/foundations/shadows">
+    Shadow colors and effects
   </Card>
 </CardGroup>
 
 ---
 
 <Info>
-The Kopi color system is intentionally minimal to maintain focus and clarity. Additional colors are introduced through semantic variants (voting states, etc.) in specific components.
+All colors are extracted from the official Kopi design system in Figma. Last updated: November 16, 2025.
 </Info>

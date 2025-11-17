@@ -6,89 +6,105 @@ icon: "cube"
 
 ## Overview
 
-The Kopi shadow system creates subtle depth and visual hierarchy. Shadows are used sparingly to maintain the clean, minimal aesthetic while providing necessary visual cues for interactive elements.
+The Kopi shadow system uses subtle, layered shadows to create depth and elevation. Shadows are applied sparingly to maintain the clean aesthetic while providing necessary visual hierarchy for cards, headers, and elevated surfaces.
 
 ## Shadow System
 
-Kopi uses minimal shadows focused on functionality rather than decoration.
+Kopi uses two primary shadow styles: **Card Shadow** for elevated surfaces and **Header Shadow** for navigation elements.
 
-### Elevation Levels
+### Shadow Styles
 
 <AccordionGroup>
-  <Accordion title="None" icon="square">
-    **No Shadow**
+  <Accordion title="Card Shadow" icon="layer-group">
+    **Elevated Surfaces**
 
-    - **Value**: `none`
-    - **Usage**: Flat elements, backgrounds, most text elements
-    - **Example**: Default state for most UI elements
+    The Card Shadow uses two subtle shadow layers to create depth for cards and elevated content.
+
+    **Layer 1:**
+    - **Type**: Drop Shadow
+    - **Offset**: 0px X, 10px Y
+    - **Blur**: 10px
+    - **Spread**: -6px
+    - **Color**: `#09090b` (rgb(9, 9, 11))
+    - **Opacity**: 0.1 (10%)
+
+    **Layer 2:**
+    - **Type**: Drop Shadow
+    - **Offset**: 0px X, 16px Y
+    - **Blur**: 16px
+    - **Spread**: -6px
+    - **Color**: `#09090b` (rgb(9, 9, 11))
+    - **Opacity**: 0.1 (10%)
+
+    ```css
+    box-shadow:
+      0px 10px 10px -6px rgba(9, 9, 11, 0.1),
+      0px 16px 16px -6px rgba(9, 9, 11, 0.1);
+    ```
+
+    **Used in:**
+    - Card component (default, for, against, neutral variants)
+    - Elevated surfaces
+    - Content containers
+
+    The negative spread (-6px) creates a more refined shadow that doesn't extend too far from the element.
+  </Accordion>
+
+  <Accordion title="Header Shadow" icon="window">
+    **Navigation Elements**
+
+    The Header Shadow combines two drop shadows with background blur for navigation and header elements.
+
+    **Layer 1:**
+    - **Type**: Drop Shadow
+    - **Offset**: 0px X, 2px Y
+    - **Blur**: 4px
+    - **Spread**: 0px
+    - **Color**: `#09090b` (rgb(9, 9, 11))
+    - **Opacity**: 0.1 (10%)
+
+    **Layer 2:**
+    - **Type**: Drop Shadow
+    - **Offset**: 0px X, 4px Y
+    - **Blur**: 6px
+    - **Spread**: -2px
+    - **Color**: `#09090b` (rgb(9, 9, 11))
+    - **Opacity**: 0.1 (10%)
+
+    **Background Blur:**
+    - **Blur**: 8px
+
+    ```css
+    box-shadow:
+      0px 2px 4px 0px rgba(9, 9, 11, 0.1),
+      0px 4px 6px -2px rgba(9, 9, 11, 0.1);
+    backdrop-filter: blur(8px);
+    ```
+
+    **Used in:**
+    - Header component (today, friends variants)
+    - Navigation bars
+    - Sticky headers
+    - Floating navigation elements
+
+    The backdrop blur creates a frosted glass effect when the header overlays content.
+  </Accordion>
+
+  <Accordion title="No Shadow" icon="square">
+    **Flat Elements**
+
+    Most Kopi UI elements have no shadow by default, maintaining a flat, clean appearance.
 
     ```css
     box-shadow: none;
     ```
 
-    Most Kopi UI elements have no shadow by default, maintaining a flat, clean appearance.
-  </Accordion>
-
-  <Accordion title="Subtle" icon="layer-group">
-    **Subtle Shadow**
-
-    - **Offset**: 0px 1px 2px
-    - **Color**: `rgba(0, 0, 0, 0.05)`
-    - **Blur**: 2px
-    - **Usage**: Button default state, subtle elevation
-
-    ```css
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-    ```
-
-    Used for buttons and interactive elements in their default state.
-  </Accordion>
-
-  <Accordion title="Hover" icon="hand-pointer">
-    **Hover Shadow**
-
-    - **Offset**: 0px 2px 4px
-    - **Color**: `rgba(0, 0, 0, 0.1)`
-    - **Blur**: 4px
-    - **Usage**: Button hover state, interactive feedback
-
-    ```css
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    ```
-
-    Applied on hover to provide tactile feedback for interactive elements.
-  </Accordion>
-
-  <Accordion title="Elevated" icon="box">
-    **Elevated Shadow**
-
-    - **Offset**: 0px 4px 8px
-    - **Color**: `rgba(0, 0, 0, 0.12)`
-    - **Blur**: 8px
-    - **Spread**: 0px
-    - **Usage**: Cards, modals, dropdowns
-
-    ```css
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
-    ```
-
-    Used for elevated surfaces like cards, popovers, and dropdown menus.
-  </Accordion>
-
-  <Accordion title="Modal" icon="window">
-    **Modal Shadow**
-
-    - **Offset**: 0px 8px 16px
-    - **Color**: `rgba(0, 0, 0, 0.15)`
-    - **Blur**: 16px
-    - **Spread**: 0px
-    - **Usage**: Modals, dialogs, overlays
-
-    ```css
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
-    ```
-
-    Reserved for high-priority overlays that need to stand out above the main content.
+    **Used in:**
+    - Buttons (default state)
+    - Most text elements
+    - Backgrounds
+    - Navbar
+    - Flat surfaces
   </Accordion>
 </AccordionGroup>
 
@@ -98,47 +114,49 @@ Kopi uses minimal shadows focused on functionality rather than decoration.
 
 ```css
 :root {
-  /* Shadow definitions */
-  --shadow-none: none;
-  --shadow-subtle: 0px 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-hover: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  --shadow-elevated: 0px 4px 8px rgba(0, 0, 0, 0.12);
-  --shadow-modal: 0px 8px 16px rgba(0, 0, 0, 0.15);
+  /* Shadow color */
+  --shadow-color: #09090b;
 
-  /* Component-specific */
-  --btn-shadow-default: var(--shadow-subtle);
-  --btn-shadow-hover: var(--shadow-hover);
-  --card-shadow: var(--shadow-elevated);
-  --modal-shadow: var(--shadow-modal);
+  /* Card Shadow - Elevated surfaces */
+  --shadow-card:
+    0px 10px 10px -6px rgba(9, 9, 11, 0.1),
+    0px 16px 16px -6px rgba(9, 9, 11, 0.1);
+
+  /* Header Shadow - Navigation elements */
+  --shadow-header:
+    0px 2px 4px 0px rgba(9, 9, 11, 0.1),
+    0px 4px 6px -2px rgba(9, 9, 11, 0.1);
+
+  /* Background blur for header */
+  --header-backdrop-blur: 8px;
+
+  /* No shadow */
+  --shadow-none: none;
 }
 ```
 
 ### Usage Examples
 
 ```css
-/* Button */
-.button {
-  box-shadow: var(--shadow-subtle);
-  transition: box-shadow 150ms ease-in-out;
-}
-
-.button:hover {
-  box-shadow: var(--shadow-hover);
-}
-
-/* Card */
+/* Card component */
 .card {
-  box-shadow: var(--shadow-elevated);
+  box-shadow: var(--shadow-card);
+  border-radius: 16px;
+  background-color: #f9f9f9;
 }
 
-/* Modal */
-.modal {
-  box-shadow: var(--shadow-modal);
+/* Header component */
+.header {
+  box-shadow: var(--shadow-header);
+  backdrop-filter: blur(var(--header-backdrop-blur));
+  border-radius: 20px;
+  background-color: #fefefe;
 }
 
-/* Dropdown */
-.dropdown {
-  box-shadow: var(--shadow-elevated);
+/* Flat button (no shadow) */
+.button {
+  box-shadow: var(--shadow-none);
+  border-radius: 16px;
 }
 ```
 
@@ -150,11 +168,12 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: {
+        'card': '0px 10px 10px -6px rgba(9, 9, 11, 0.1), 0px 16px 16px -6px rgba(9, 9, 11, 0.1)',
+        'header': '0px 2px 4px 0px rgba(9, 9, 11, 0.1), 0px 4px 6px -2px rgba(9, 9, 11, 0.1)',
         'none': 'none',
-        'subtle': '0px 1px 2px rgba(0, 0, 0, 0.05)',
-        'hover': '0px 2px 4px rgba(0, 0, 0, 0.1)',
-        'elevated': '0px 4px 8px rgba(0, 0, 0, 0.12)',
-        'modal': '0px 8px 16px rgba(0, 0, 0, 0.15)',
+      },
+      backdropBlur: {
+        'header': '8px',
       },
     },
   },
@@ -166,146 +185,260 @@ module.exports = {
 ### When to Use Shadows
 
 ✅ **Do use shadows for:**
-- Interactive elements (buttons, cards)
-- Hover states for tactile feedback
-- Modals and overlays
-- Dropdowns and popovers
-- Elements that need to appear "above" the page
+- Card components (elevated content)
+- Header/navigation elements
+- Elevated surfaces that need to appear "above" the page
+- Content containers that need visual separation
+- Floating elements
 
 ### When to Avoid Shadows
 
 ❌ **Don't use shadows for:**
+- Buttons (Kopi buttons are flat by default)
 - Text elements
 - Flat backgrounds
+- Navbar component (uses flat background)
 - Elements that should blend with the page
-- Decorative purposes (keep it functional)
 - Too many elements at once (causes visual noise)
 
-## Elevation Hierarchy
+## Component Shadow Usage
 
-Use shadows to create clear visual hierarchy:
+### Card Component
 
-1. **Base Layer** (no shadow): Background, most UI elements
-2. **Level 1** (subtle): Default buttons, slight interactivity
-3. **Level 2** (hover): Hover states, active elements
-4. **Level 3** (elevated): Cards, dropdowns, sticky elements
-5. **Level 4** (modal): Modals, dialogs, highest priority overlays
+```css
+.card {
+  box-shadow: var(--shadow-card);
+  /* 0px 10px 10px -6px rgba(9, 9, 11, 0.1),
+     0px 16px 16px -6px rgba(9, 9, 11, 0.1) */
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  padding: 16px;
+}
+```
+
+**Variants using Card Shadow:**
+- `card-default`
+- `card-for` (vote for variant)
+- `card-against` (vote against variant)
+- `card-neutral` (vote neutral variant)
+
+### Header Component
+
+```css
+.header {
+  box-shadow: var(--shadow-header);
+  /* 0px 2px 4px 0px rgba(9, 9, 11, 0.1),
+     0px 4px 6px -2px rgba(9, 9, 11, 0.1) */
+  backdrop-filter: blur(8px);
+  background-color: #fefefe;
+  border-radius: 20px;
+  padding: 8px;
+}
+```
+
+**Variants using Header Shadow:**
+- `header-today`
+- `header-friends`
+
+### Button Component (No Shadow)
+
+```css
+.button {
+  box-shadow: none;
+  background-color: #17171a;
+  color: #fcfcfc;
+  border-radius: 16px;
+  padding: 8px 16px;
+}
+```
+
+Kopi buttons do not use shadows. They rely on solid backgrounds and colors for visual distinction.
+
+### Navbar Component (No Shadow)
+
+```css
+.navbar {
+  box-shadow: none;
+  background-color: #f3f3f4;
+  padding: 24px;
+}
+```
+
+The Navbar uses a solid background color without shadows.
 
 ## Accessibility
 
 ### Color Modes
 
-Shadows work on both dark and light backgrounds:
+Shadows use `#09090b` (darkest color in the Kopi palette) with low opacity (0.1) to work on light backgrounds.
 
 ```css
-/* Dark theme (default) */
+/* Light theme (default) - works perfectly */
 .element {
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Light theme - might need adjustment */
-.theme-light .element {
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 10px 10px -6px rgba(9, 9, 11, 0.1);
 }
 ```
 
+<Note>
+If you implement a dark mode, you may need to adjust shadow colors or remove shadows entirely, as dark surfaces typically don't require shadows for depth.
+</Note>
+
 ### Motion Preferences
 
-Respect user preferences for reduced motion:
+Respect user preferences for reduced motion when animating shadows:
 
 ```css
-.button {
-  box-shadow: var(--shadow-subtle);
-  transition: box-shadow 150ms ease-in-out;
+.card {
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 200ms ease-in-out;
+}
+
+.card:hover {
+  box-shadow:
+    0px 12px 12px -6px rgba(9, 9, 11, 0.12),
+    0px 18px 18px -6px rgba(9, 9, 11, 0.12);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .button {
+  .card {
     transition: none;
   }
 }
 ```
 
-## Component Examples
+## Elevation Hierarchy
 
-### Button
+Kopi uses a minimal elevation system:
 
-```css
-.button {
-  /* Default */
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 150ms ease-in-out;
-}
-
-.button:hover {
-  /* Hover */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.button:active {
-  /* Pressed - reduce shadow */
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
-}
-
-.button:disabled {
-  /* Disabled - no shadow */
-  box-shadow: none;
-}
-```
-
-### Card
-
-```css
-.card {
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
-  border-radius: 12px;
-  transition: box-shadow 200ms ease-in-out;
-}
-
-.card:hover {
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
-}
-```
-
-### Modal
-
-```css
-.modal {
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
-  border-radius: 16px;
-}
-
-.modal-overlay {
-  background: rgba(23, 23, 26, 0.8);
-  backdrop-filter: blur(4px);
-}
-```
+1. **Base Layer** (no shadow): Background, navbar, buttons, most UI elements
+2. **Elevated Layer** (card shadow): Cards, content containers, elevated surfaces
+3. **Floating Layer** (header shadow): Headers, navigation, sticky elements with backdrop blur
 
 ## Best Practices
 
 ### Do's
 
+✅ Use Card Shadow for content cards and elevated surfaces
+✅ Use Header Shadow for navigation and header elements
+✅ Keep most buttons and interactive elements flat (no shadow)
 ✅ Use shadows consistently across similar components
-✅ Animate shadow changes for smooth transitions
-✅ Keep shadows subtle - less is more
-✅ Use shadows to indicate interactivity
+✅ Combine Header Shadow with backdrop blur for floating navigation
 
 ### Don'ts
 
-❌ Don't use too many shadow levels
-❌ Don't make shadows too pronounced
-❌ Don't use shadows as primary decoration
-❌ Don't forget to test on different backgrounds
+❌ Don't use shadows on buttons (keep them flat)
+❌ Don't add custom shadow values outside the system
+❌ Don't use too many shadowed elements (causes visual clutter)
+❌ Don't make shadows too pronounced (keep them subtle)
+❌ Don't forget the backdrop blur on header shadows
+
+## Advanced Techniques
+
+### Layered Shadows
+
+Both shadow styles use multiple layers for more realistic depth:
+
+```css
+/* Card Shadow uses 2 layers */
+box-shadow:
+  /* Closer, tighter shadow */
+  0px 10px 10px -6px rgba(9, 9, 11, 0.1),
+  /* Farther, softer shadow */
+  0px 16px 16px -6px rgba(9, 9, 11, 0.1);
+```
+
+The two-layer approach creates a more natural shadow that mimics real-world lighting.
+
+### Negative Spread
+
+Using negative spread (-6px in Card Shadow, -2px in Header Shadow) pulls the shadow inward, creating a more refined, less aggressive effect:
+
+```css
+/* Without negative spread - shadow extends far */
+box-shadow: 0px 10px 10px 0px rgba(9, 9, 11, 0.1);
+
+/* With negative spread - shadow is more refined */
+box-shadow: 0px 10px 10px -6px rgba(9, 9, 11, 0.1);
+```
+
+### Backdrop Blur
+
+Header components use `backdrop-filter: blur(8px)` for a frosted glass effect:
+
+```css
+.header {
+  background-color: rgba(254, 254, 254, 0.9); /* Semi-transparent */
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-header);
+}
+```
+
+This creates a modern, layered appearance when the header overlays content.
+
+## Component Examples
+
+### Card with Shadow
+
+```html
+<div class="card">
+  <h3>Card Title</h3>
+  <p>Card content with elevated appearance using Card Shadow.</p>
+</div>
+```
+
+```css
+.card {
+  box-shadow: var(--shadow-card);
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  padding: 16px;
+}
+```
+
+### Header with Shadow and Blur
+
+```html
+<header class="header">
+  <h1>Today</h1>
+  <nav>Navigation items</nav>
+</header>
+```
+
+```css
+.header {
+  box-shadow: var(--shadow-header);
+  backdrop-filter: blur(8px);
+  background-color: rgba(254, 254, 254, 0.95);
+  border-radius: 20px;
+  padding: 8px;
+}
+```
+
+### Flat Button (No Shadow)
+
+```html
+<button class="button">Submit</button>
+```
+
+```css
+.button {
+  box-shadow: none;
+  background-color: #17171a;
+  color: #fcfcfc;
+  border-radius: 16px;
+  padding: 8px 16px;
+}
+```
 
 ## Related
 
 <CardGroup cols={2}>
   <Card title="Colors" icon="palette" href="/design-system/foundations/colors">
-    Shadow colors and contrast
+    Shadow colors (#09090b)
   </Card>
 
   <Card title="Spacing" icon="ruler-horizontal" href="/design-system/foundations/spacing">
-    Shadow offset and spacing
+    Shadow offset and blur values
   </Card>
 
   <Card title="Components" icon="cube" href="/design-system/components/buttons">
@@ -320,5 +453,5 @@ Respect user preferences for reduced motion:
 ---
 
 <Info>
-The Kopi shadow system is intentionally minimal. Shadows are used functionally to indicate interactivity and elevation, not as decoration.
+The Kopi shadow system is intentionally minimal with only two shadow styles. Shadows are used functionally to indicate elevation, not as decoration. All values extracted from the Kopi Figma design system. Last updated: November 16, 2025.
 </Info>

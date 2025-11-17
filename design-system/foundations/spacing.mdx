@@ -6,31 +6,93 @@ icon: "ruler-horizontal"
 
 ## Overview
 
-The Kopi spacing system uses an 8px base unit for consistency across all components and layouts. This creates a harmonious rhythm and makes spacing decisions predictable and scalable.
+The Kopi spacing system uses a refined scale from 2px to 48px for creating consistent layouts and component spacing. The system provides flexibility while maintaining rhythm and visual harmony.
 
 ## Spacing Scale
 
-Our spacing scale is based on multiples of 8px, extracted from actual component implementations.
+Our spacing scale provides 10 distinct values for all layout and component spacing needs.
 
 ### Core Scale
 
 | Token | Value | Rem | Usage | Example |
-|-------|-------|-----|-------|---------|
-| `space-1` | 8px | 0.5rem | Minimal spacing, icon gaps | Gap between icon and label in buttons |
-| `space-2` | 16px | 1rem | Standard spacing, padding | Horizontal padding in buttons |
-| `space-4` | 32px | 2rem | Section spacing | Spacing between UI sections |
-| `space-8` | 64px | 4rem | Large spacing | Major layout sections |
+|-------|-------|-----|-------|------------|
+| `space-xxs` | 2px | 0.125rem | Minimal gaps, fine adjustments | Subtle borders, optical adjustments |
+| `space-xs` | 4px | 0.25rem | Tiny spacing | Icon padding, tight gaps |
+| `space-sm` | 6px | 0.375rem | Small spacing | Compact padding |
+| `space-sm-plus` | 7px | 0.4375rem | Adjusted small spacing | Optical refinements |
+| `space-md` | 8px | 0.5rem | **Base unit** | Icon gaps, button padding (vertical), component spacing |
+| `space-lg` | 12px | 0.75rem | Medium spacing | Moderate padding and gaps |
+| `space-xl` | 16px | 1rem | Standard spacing | Button padding (horizontal), component padding, card spacing |
+| `space-2xl` | 20px | 1.25rem | Large spacing | Section padding, generous component spacing |
+| `space-3xl` | 24px | 1.5rem | Extra large spacing | Major layout sections, navbar spacing |
+| `space-4xl` | 48px | 3rem | Maximum spacing | Hero sections, major page divisions |
 
-### Component Spacing
+<Info>
+The base unit is **8px** (`space-md`), used throughout components for consistent rhythm. Most component spacing is built around multiples of 8px.
+</Info>
 
-Extracted from the Button component:
+## Component Spacing
+
+Spacing extracted from actual Kopi components:
+
+### Button Component
 
 | Property | Value | Token | Usage |
 |----------|-------|-------|-------|
-| **Padding Y** (sm) | 8px | `space-1` | Vertical padding for small buttons |
-| **Padding X** (sm) | 16px | `space-2` | Horizontal padding for small buttons |
-| **Gap** | 8px | `space-1` | Space between icon and label |
-| **Border Radius** | 16px | `radius-2` | Button corner radius |
+| **Vertical Padding (sm)** | 8px | `space-md` | Top/bottom padding for small buttons |
+| **Horizontal Padding (sm)** | 16px | `space-xl` | Left/right padding for small buttons |
+| **Icon Gap** | 8px | `space-md` | Space between icon and label |
+| **Border Radius** | 16px | `radius-xl` | Button corner radius |
+
+### Navbar Component
+
+| Property | Value | Token |
+|----------|-------|-------|
+| **Item Spacing** | 8px | `space-md` |
+| **Item Border Radius** | 16px | `radius-xl` |
+| **Padding** | 24px | `space-3xl` |
+
+### NavbarItem Component
+
+| Property | Value | Token |
+|----------|-------|-------|
+| **Internal Spacing** | 8px | `space-md` |
+| **Border Radius** | 16px | `radius-xl` |
+
+### Card Component
+
+| Property | Value | Token |
+|----------|-------|-------|
+| **Padding** | 16px | `space-xl` |
+| **Border Radius** | 16px | `radius-xl` |
+
+### Header Component
+
+| Property | Value | Token |
+|----------|-------|-------|
+| **Spacing** | 8px | `space-md` |
+| **Border Radius** | 20px | `radius-2xl` |
+
+### Information Component
+
+| Property | Value | Token |
+|----------|-------|-------|
+| **Padding** | 16px | `space-xl` |
+| **Border Radius** | 16px | `radius-xl` |
+
+### Input Component
+
+| Property | Value | Token |
+|----------|-------|-------|
+| **Spacing** | 8px | `space-md` |
+| **Border Radius** | 16px | `radius-xl` |
+
+### Notification Component
+
+| Property | Value | Token |
+|----------|-------|-------|
+| **Spacing** | 8px | `space-md` |
+| **Border Radius** | 16px | `radius-xl` |
 
 ## Usage Guidelines
 
@@ -39,14 +101,17 @@ Extracted from the Button component:
 Use padding to create space within components:
 
 ```css
-/* Small button */
-padding: 8px 16px; /* space-1 space-2 */
+/* Button - small */
+padding: 8px 16px; /* space-md space-xl */
 
-/* Medium button */
-padding: 12px 24px;
+/* Card */
+padding: 16px; /* space-xl */
 
-/* Large button */
-padding: 16px 32px; /* space-2 space-4 */
+/* Navbar */
+padding: 24px; /* space-3xl */
+
+/* Hero section */
+padding: 48px; /* space-4xl */
 ```
 
 ### Gaps
@@ -54,14 +119,20 @@ padding: 16px 32px; /* space-2 space-4 */
 Use gaps for spacing between elements:
 
 ```css
-/* Icon and label */
-gap: 8px; /* space-1 */
+/* Icon and label (Button) */
+gap: 8px; /* space-md */
+
+/* Navbar items */
+gap: 8px; /* space-md */
 
 /* Form fields */
-gap: 16px; /* space-2 */
+gap: 12px; /* space-lg */
 
 /* Card grid */
-gap: 24px; /* space-3 */
+gap: 16px; /* space-xl */
+
+/* Major sections */
+gap: 24px; /* space-3xl */
 ```
 
 ### Margins
@@ -69,14 +140,17 @@ gap: 24px; /* space-3 */
 Use margins for spacing between components:
 
 ```css
-/* Tight spacing */
-margin-bottom: 8px; /* space-1 */
+/* Minimal spacing */
+margin-bottom: 8px; /* space-md */
 
 /* Standard spacing */
-margin-bottom: 16px; /* space-2 */
+margin-bottom: 16px; /* space-xl */
 
 /* Section spacing */
-margin-bottom: 32px; /* space-4 */
+margin-bottom: 24px; /* space-3xl */
+
+/* Large spacing */
+margin-bottom: 48px; /* space-4xl */
 ```
 
 ## Implementation
@@ -85,25 +159,33 @@ margin-bottom: 32px; /* space-4 */
 
 ```css
 :root {
-  /* Base unit */
-  --space-base: 8px;
-
   /* Spacing scale */
-  --space-1: 8px;   /* 0.5rem */
-  --space-2: 16px;  /* 1rem */
-  --space-3: 24px;  /* 1.5rem */
-  --space-4: 32px;  /* 2rem */
-  --space-5: 40px;  /* 2.5rem */
-  --space-6: 48px;  /* 3rem */
-  --space-8: 64px;  /* 4rem */
-  --space-10: 80px; /* 5rem */
-  --space-12: 96px; /* 6rem */
-  --space-16: 128px; /* 8rem */
+  --space-xxs: 2px;   /* 0.125rem */
+  --space-xs: 4px;    /* 0.25rem */
+  --space-sm: 6px;    /* 0.375rem */
+  --space-sm-plus: 7px; /* 0.4375rem */
+  --space-md: 8px;    /* 0.5rem - BASE UNIT */
+  --space-lg: 12px;   /* 0.75rem */
+  --space-xl: 16px;   /* 1rem */
+  --space-2xl: 20px;  /* 1.25rem */
+  --space-3xl: 24px;  /* 1.5rem */
+  --space-4xl: 48px;  /* 3rem */
 
-  /* Component-specific */
-  --btn-padding-y-sm: var(--space-1);
-  --btn-padding-x-sm: var(--space-2);
-  --btn-gap: var(--space-1);
+  /* Component-specific spacing */
+  --btn-padding-y-sm: var(--space-md);
+  --btn-padding-x-sm: var(--space-xl);
+  --btn-gap: var(--space-md);
+
+  --card-padding: var(--space-xl);
+
+  --navbar-padding: var(--space-3xl);
+  --navbar-item-spacing: var(--space-md);
+
+  --header-spacing: var(--space-md);
+
+  --input-spacing: var(--space-md);
+
+  --notification-spacing: var(--space-md);
 }
 ```
 
@@ -115,62 +197,19 @@ module.exports = {
   theme: {
     extend: {
       spacing: {
-        '1': '8px',
-        '2': '16px',
-        '3': '24px',
-        '4': '32px',
-        '5': '40px',
-        '6': '48px',
-        '8': '64px',
-        '10': '80px',
-        '12': '96px',
-        '16': '128px',
+        'xxs': '2px',
+        'xs': '4px',
+        'sm': '6px',
+        'sm-plus': '7px',
+        'md': '8px',
+        'lg': '12px',
+        'xl': '16px',
+        '2xl': '20px',
+        '3xl': '24px',
+        '4xl': '48px',
       },
     },
   },
-}
-```
-
-## Layout Patterns
-
-### Container Padding
-
-```css
-.container {
-  padding-left: var(--space-4);  /* 32px */
-  padding-right: var(--space-4); /* 32px */
-}
-
-@media (min-width: 768px) {
-  .container {
-    padding-left: var(--space-6);  /* 48px */
-    padding-right: var(--space-6); /* 48px */
-  }
-}
-```
-
-### Stack Spacing
-
-```css
-.stack > * + * {
-  margin-top: var(--space-2); /* 16px */
-}
-
-.stack-lg > * + * {
-  margin-top: var(--space-4); /* 32px */
-}
-```
-
-### Grid Gaps
-
-```css
-.grid {
-  display: grid;
-  gap: var(--space-2); /* 16px */
-}
-
-.grid-lg {
-  gap: var(--space-4); /* 32px */
 }
 ```
 
@@ -180,29 +219,116 @@ The Kopi design system uses consistent border radius values:
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| `radius-sm` | 8px | Small elements, tags |
-| `radius-md` | 12px | Cards, inputs |
-| `radius-lg` | 16px | Buttons, modals |
-| `radius-xl` | 20px | Large surfaces |
-| `radius-full` | 9999px | Pills, circular elements |
+| `radius-xs` | 2px | Minimal rounding, subtle edges |
+| `radius-sm` | 4px | Small elements, tight radius |
+| `radius-md` | 5px | Medium radius |
+| `radius-lg` | 8px | Moderate rounding |
+| `radius-xl` | 16px | **Standard radius** - Buttons, inputs, cards, navbar items, notifications |
+| `radius-2xl` | 20px | Large radius - Header component |
 
-**From Button component**: `border-radius: 16px` (radius-lg)
+<Note>
+**Most common radius**: 16px (`radius-xl`) is used for almost all Kopi components including buttons, inputs, cards, navbar items, and notifications.
+</Note>
+
+### Border Radius Implementation
+
+```css
+:root {
+  /* Border radius scale */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 5px;
+  --radius-lg: 8px;
+  --radius-xl: 16px;  /* Most commonly used */
+  --radius-2xl: 20px;
+  --radius-full: 9999px; /* Fully rounded */
+
+  /* Component-specific */
+  --btn-radius: var(--radius-xl);
+  --card-radius: var(--radius-xl);
+  --input-radius: var(--radius-xl);
+  --navbar-item-radius: var(--radius-xl);
+  --notification-radius: var(--radius-xl);
+  --header-radius: var(--radius-2xl);
+}
+```
+
+## Layout Patterns
+
+### Container Padding
+
+```css
+.container {
+  padding-left: var(--space-xl);  /* 16px */
+  padding-right: var(--space-xl); /* 16px */
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--space-3xl);  /* 24px */
+    padding-right: var(--space-3xl); /* 24px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: var(--space-4xl);  /* 48px */
+    padding-right: var(--space-4xl); /* 48px */
+  }
+}
+```
+
+### Stack Spacing
+
+```css
+.stack > * + * {
+  margin-top: var(--space-xl); /* 16px */
+}
+
+.stack-lg > * + * {
+  margin-top: var(--space-3xl); /* 24px */
+}
+
+.stack-tight > * + * {
+  margin-top: var(--space-md); /* 8px */
+}
+```
+
+### Grid Gaps
+
+```css
+.grid {
+  display: grid;
+  gap: var(--space-xl); /* 16px */
+}
+
+.grid-lg {
+  gap: var(--space-3xl); /* 24px */
+}
+
+.grid-tight {
+  gap: var(--space-md); /* 8px */
+}
+```
 
 ## Do's and Don'ts
 
 ### Do's
 
-✅ Use the 8px spacing scale consistently
-✅ Maintain rhythm by using multiples of 8px
-✅ Use spacing tokens instead of hard-coded values
+✅ Use the defined spacing scale consistently
+✅ Use `8px` (space-md) as the base unit for most component spacing
+✅ Use `16px` (space-xl) for standard padding and gaps
+✅ Use `24px` (space-3xl) for major sections
 ✅ Apply consistent spacing across similar components
+✅ Use spacing tokens instead of hard-coded values
 
 ### Don'ts
 
-❌ Don't use arbitrary spacing values
+❌ Don't use arbitrary spacing values outside the scale
 ❌ Don't mix different spacing systems
-❌ Don't use spacing smaller than 8px except for optical adjustments
+❌ Don't use spacing smaller than 2px except for sub-pixel rendering
 ❌ Don't create visual tension with inconsistent spacing
+❌ Don't use excessive spacing that breaks visual relationships
 
 ## Responsive Spacing
 
@@ -210,18 +336,18 @@ Adjust spacing for different screen sizes:
 
 ```css
 .section {
-  padding: var(--space-4); /* 32px mobile */
+  padding: var(--space-xl); /* 16px mobile */
 }
 
 @media (min-width: 768px) {
   .section {
-    padding: var(--space-6); /* 48px tablet */
+    padding: var(--space-3xl); /* 24px tablet */
   }
 }
 
 @media (min-width: 1024px) {
   .section {
-    padding: var(--space-8); /* 64px desktop */
+    padding: var(--space-4xl); /* 48px desktop */
   }
 }
 ```
@@ -232,9 +358,15 @@ Adjust spacing for different screen sizes:
 
 ```css
 .button {
+  /* Small button */
   padding: var(--btn-padding-y-sm) var(--btn-padding-x-sm); /* 8px 16px */
   gap: var(--btn-gap); /* 8px */
-  border-radius: 16px;
+  border-radius: var(--btn-radius); /* 16px */
+}
+
+.button-icon {
+  width: 24px;
+  height: 24px;
 }
 ```
 
@@ -242,16 +374,32 @@ Adjust spacing for different screen sizes:
 
 ```css
 .card {
-  padding: var(--space-4); /* 32px */
-  border-radius: var(--radius-md); /* 12px */
+  padding: var(--card-padding); /* 16px */
+  border-radius: var(--card-radius); /* 16px */
+  gap: var(--space-md); /* 8px between elements */
 }
 
 .card-title {
-  margin-bottom: var(--space-2); /* 16px */
+  margin-bottom: var(--space-md); /* 8px */
 }
 
 .card-content {
-  margin-bottom: var(--space-3); /* 24px */
+  margin-bottom: var(--space-lg); /* 12px */
+}
+```
+
+### Navbar Spacing
+
+```css
+.navbar {
+  padding: var(--navbar-padding); /* 24px */
+  gap: var(--navbar-item-spacing); /* 8px */
+  background-color: #f3f3f4;
+}
+
+.navbar-item {
+  padding: var(--space-md); /* 8px */
+  border-radius: var(--navbar-item-radius); /* 16px */
 }
 ```
 
@@ -259,15 +407,30 @@ Adjust spacing for different screen sizes:
 
 ```css
 .form-field {
-  margin-bottom: var(--space-3); /* 24px */
+  margin-bottom: var(--space-xl); /* 16px */
 }
 
 .form-label {
-  margin-bottom: var(--space-1); /* 8px */
+  margin-bottom: var(--space-md); /* 8px */
+}
+
+.form-input {
+  padding: var(--input-spacing); /* 8px */
+  border-radius: var(--input-radius); /* 16px */
 }
 
 .form-help-text {
-  margin-top: var(--space-1); /* 8px */
+  margin-top: var(--space-md); /* 8px */
+}
+```
+
+### Notification Spacing
+
+```css
+.notification {
+  padding: var(--notification-spacing); /* 8px */
+  border-radius: var(--notification-radius); /* 16px */
+  gap: var(--space-md); /* 8px */
 }
 ```
 
@@ -275,20 +438,24 @@ Adjust spacing for different screen sizes:
 
 <CardGroup cols={2}>
   <Card title="Typography" icon="font" href="/design-system/foundations/typography">
-    Line heights and text spacing
+    Text spacing and line heights
   </Card>
 
   <Card title="Components" icon="cube" href="/design-system/components/buttons">
     See spacing in components
   </Card>
 
+  <Card title="Colors" icon="palette" href="/design-system/foundations/colors">
+    Color and spacing combinations
+  </Card>
+
   <Card title="Design Tokens" icon="code" href="/design-system/foundations/design-tokens">
-    Implementation tokens
+    Complete spacing token reference
   </Card>
 </CardGroup>
 
 ---
 
 <Info>
-All spacing values are extracted from actual Kopi components to ensure consistency between design and implementation.
+All spacing values are extracted from actual Kopi components in Figma to ensure consistency between design and implementation. Last updated: November 16, 2025.
 </Info>
