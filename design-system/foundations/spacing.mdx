@@ -1,283 +1,294 @@
 ---
 title: "Spacing"
-description: "Spacing scale, grid system, and layout spacing guidelines"
+description: "Spacing scale and layout guidelines for the Kopi design system"
 icon: "ruler-horizontal"
 ---
 
+## Overview
+
+The Kopi spacing system uses an 8px base unit for consistency across all components and layouts. This creates a harmonious rhythm and makes spacing decisions predictable and scalable.
+
 ## Spacing Scale
 
-Our spacing system is based on a **4px base unit** for consistency and mathematical precision across all designs.
+Our spacing scale is based on multiples of 8px, extracted from actual component implementations.
 
-### Base Scale
+### Core Scale
 
-| Token | Value | Rem | Usage |
-|-------|-------|-----|-------|
-| `space-0` | 0px | 0rem | No spacing |
-| `space-0.5` | 2px | 0.125rem | Extra fine spacing, optical alignment |
-| `space-1` | 4px | 0.25rem | Minimal spacing, tight groups |
-| `space-1.5` | 6px | 0.375rem | Fine spacing adjustments |
-| `space-2` | 8px | 0.5rem | Small gaps, icon spacing |
-| `space-2.5` | 10px | 0.625rem | Between small and compact |
-| `space-3` | 12px | 0.75rem | Compact spacing |
-| `space-4` | 16px | 1rem | Default spacing unit |
-| `space-5` | 20px | 1.25rem | Medium spacing |
-| `space-6` | 24px | 1.5rem | Comfortable spacing |
-| `space-8` | 32px | 2rem | Large spacing |
-| `space-10` | 40px | 2.5rem | Extra large spacing |
-| `space-12` | 48px | 3rem | Section spacing |
-| `space-16` | 64px | 4rem | Large section spacing |
-| `space-20` | 80px | 5rem | Major section dividers |
-| `space-24` | 96px | 6rem | Page-level spacing |
+| Token | Value | Rem | Usage | Example |
+|-------|-------|-----|-------|---------|
+| `space-1` | 8px | 0.5rem | Minimal spacing, icon gaps | Gap between icon and label in buttons |
+| `space-2` | 16px | 1rem | Standard spacing, padding | Horizontal padding in buttons |
+| `space-4` | 32px | 2rem | Section spacing | Spacing between UI sections |
+| `space-8` | 64px | 4rem | Large spacing | Major layout sections |
 
-<Tip>
-  Our 4px-based grid system provides more flexibility than traditional 8px systems. Use multiples of 4px (space-1, space-2, space-3, etc.) for precise control over spacing.
-</Tip>
+### Component Spacing
 
-## Component Spacing
+Extracted from the Button component:
 
-### Internal Padding
-
-Use these values for padding inside components:
-
-<AccordionGroup>
-  <Accordion title="Buttons" icon="square">
-    - **Small**: 8px vertical, 12px horizontal (`space-2` × `space-3`)
-    - **Medium**: 12px vertical, 16px horizontal (`space-3` × `space-4`)
-    - **Large**: 16px vertical, 24px horizontal (`space-4` × `space-6`)
-  </Accordion>
-
-  <Accordion title="Input Fields" icon="input-text">
-    - **Small**: 8px vertical, 12px horizontal
-    - **Medium**: 12px vertical, 16px horizontal
-    - **Large**: 16px vertical, 20px horizontal
-  </Accordion>
-
-  <Accordion title="Cards" icon="rectangle-wide">
-    - **Compact**: 16px all sides (`space-4`)
-    - **Default**: 24px all sides (`space-6`)
-    - **Spacious**: 32px all sides (`space-8`)
-  </Accordion>
-
-  <Accordion title="Modals/Dialogs" icon="window">
-    - **Padding**: 24px - 32px (`space-6` to `space-8`)
-    - **Header/Footer**: 16px - 24px vertical (`space-4` to `space-6`)
-  </Accordion>
-</AccordionGroup>
-
-### External Margins
-
-Spacing between components and sections:
-
-| Context | Spacing | Token |
-|---------|---------|-------|
-| Between related elements | 8px - 12px | `space-2` to `space-3` |
-| Between form fields | 16px - 20px | `space-4` to `space-5` |
-| Between cards in a grid | 16px - 24px | `space-4` to `space-6` |
-| Between sections | 32px - 48px | `space-8` to `space-12` |
-| Between major page sections | 64px - 96px | `space-16` to `space-24` |
-
-## Layout Grid
-
-### Container Widths
-
-| Breakpoint | Container Max Width | Padding |
-|------------|---------------------|---------|
-| Mobile (< 640px) | 100% | 16px (`space-4`) |
-| Tablet (640px - 1024px) | 100% | 24px (`space-6`) |
-| Desktop (1024px - 1440px) | 1200px | 32px (`space-8`) |
-| Large Desktop (> 1440px) | 1280px | 40px (`space-10`) |
-
-### Grid System
-
-Our grid system uses 12 columns with responsive gutters:
-
-<CardGroup cols={2}>
-  <Card title="Mobile Grid" icon="mobile">
-    - **Columns**: 4 or 6
-    - **Gutter**: 16px (`space-4`)
-    - **Margin**: 16px (`space-4`)
-  </Card>
-
-  <Card title="Tablet Grid" icon="tablet">
-    - **Columns**: 8 or 12
-    - **Gutter**: 24px (`space-6`)
-    - **Margin**: 24px (`space-6`)
-  </Card>
-
-  <Card title="Desktop Grid" icon="desktop">
-    - **Columns**: 12
-    - **Gutter**: 24px - 32px (`space-6` to `space-8`)
-    - **Margin**: 32px - 40px (`space-8` to `space-10`)
-  </Card>
-
-  <Card title="Wide Desktop" icon="tv">
-    - **Columns**: 12
-    - **Gutter**: 32px (`space-8`)
-    - **Margin**: 40px (`space-10`)
-  </Card>
-</CardGroup>
-
-## Vertical Rhythm
-
-Maintain consistent vertical spacing throughout your layouts using the spacing scale.
-
-### Typography Spacing
-
-| Element | Top Margin | Bottom Margin |
-|---------|------------|---------------|
-| H1 | 0 | 24px (`space-6`) |
-| H2 | 40px (`space-10`) | 16px (`space-4`) |
-| H3 | 32px (`space-8`) | 12px (`space-3`) |
-| H4 | 24px (`space-6`) | 12px (`space-3`) |
-| Paragraph | 0 | 16px (`space-4`) |
-| List | 0 | 16px (`space-4`) |
-| List items | 0 | 8px (`space-2`) |
-
-### Content Sections
-
-<Steps>
-  <Step title="Related content groups">
-    Use 8px - 16px (`space-2` to `space-4`) between tightly related items
-  </Step>
-
-  <Step title="Content blocks">
-    Use 24px - 32px (`space-6` to `space-8`) between different content blocks
-  </Step>
-
-  <Step title="Major sections">
-    Use 48px - 64px (`space-12` to `space-16`) between major page sections
-  </Step>
-
-  <Step title="Page divisions">
-    Use 80px - 96px (`space-20` to `space-24`) between distinct page areas
-  </Step>
-</Steps>
-
-## Responsive Spacing
-
-Adjust spacing based on screen size to optimize for different devices:
-
-### Mobile First Approach
-
-```css
-/* Mobile (default) */
-.section {
-  padding: 32px 16px; /* space-8 space-4 */
-  gap: 16px; /* space-4 */
-}
-
-/* Tablet and up */
-@media (min-width: 768px) {
-  .section {
-    padding: 48px 24px; /* space-12 space-6 */
-    gap: 24px; /* space-6 */
-  }
-}
-
-/* Desktop and up */
-@media (min-width: 1024px) {
-  .section {
-    padding: 64px 32px; /* space-16 space-8 */
-    gap: 32px; /* space-8 */
-  }
-}
-```
-
-## Stack & Inline Spacing
-
-### Stack (Vertical)
-
-For vertical spacing between stacked elements:
-
-```css
-.stack {
-  display: flex;
-  flex-direction: column;
-  gap: 16px; /* space-4 - adjust as needed */
-}
-```
-
-### Inline (Horizontal)
-
-For horizontal spacing between inline elements:
-
-```css
-.inline {
-  display: flex;
-  flex-direction: row;
-  gap: 8px; /* space-2 - adjust as needed */
-}
-```
+| Property | Value | Token | Usage |
+|----------|-------|-------|-------|
+| **Padding Y** (sm) | 8px | `space-1` | Vertical padding for small buttons |
+| **Padding X** (sm) | 16px | `space-2` | Horizontal padding for small buttons |
+| **Gap** | 8px | `space-1` | Space between icon and label |
+| **Border Radius** | 16px | `radius-2` | Button corner radius |
 
 ## Usage Guidelines
 
+### Padding
+
+Use padding to create space within components:
+
+```css
+/* Small button */
+padding: 8px 16px; /* space-1 space-2 */
+
+/* Medium button */
+padding: 12px 24px;
+
+/* Large button */
+padding: 16px 32px; /* space-2 space-4 */
+```
+
+### Gaps
+
+Use gaps for spacing between elements:
+
+```css
+/* Icon and label */
+gap: 8px; /* space-1 */
+
+/* Form fields */
+gap: 16px; /* space-2 */
+
+/* Card grid */
+gap: 24px; /* space-3 */
+```
+
+### Margins
+
+Use margins for spacing between components:
+
+```css
+/* Tight spacing */
+margin-bottom: 8px; /* space-1 */
+
+/* Standard spacing */
+margin-bottom: 16px; /* space-2 */
+
+/* Section spacing */
+margin-bottom: 32px; /* space-4 */
+```
+
+## Implementation
+
+### CSS Variables
+
+```css
+:root {
+  /* Base unit */
+  --space-base: 8px;
+
+  /* Spacing scale */
+  --space-1: 8px;   /* 0.5rem */
+  --space-2: 16px;  /* 1rem */
+  --space-3: 24px;  /* 1.5rem */
+  --space-4: 32px;  /* 2rem */
+  --space-5: 40px;  /* 2.5rem */
+  --space-6: 48px;  /* 3rem */
+  --space-8: 64px;  /* 4rem */
+  --space-10: 80px; /* 5rem */
+  --space-12: 96px; /* 6rem */
+  --space-16: 128px; /* 8rem */
+
+  /* Component-specific */
+  --btn-padding-y-sm: var(--space-1);
+  --btn-padding-x-sm: var(--space-2);
+  --btn-gap: var(--space-1);
+}
+```
+
+### Tailwind CSS
+
+```javascript
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      spacing: {
+        '1': '8px',
+        '2': '16px',
+        '3': '24px',
+        '4': '32px',
+        '5': '40px',
+        '6': '48px',
+        '8': '64px',
+        '10': '80px',
+        '12': '96px',
+        '16': '128px',
+      },
+    },
+  },
+}
+```
+
+## Layout Patterns
+
+### Container Padding
+
+```css
+.container {
+  padding-left: var(--space-4);  /* 32px */
+  padding-right: var(--space-4); /* 32px */
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--space-6);  /* 48px */
+    padding-right: var(--space-6); /* 48px */
+  }
+}
+```
+
+### Stack Spacing
+
+```css
+.stack > * + * {
+  margin-top: var(--space-2); /* 16px */
+}
+
+.stack-lg > * + * {
+  margin-top: var(--space-4); /* 32px */
+}
+```
+
+### Grid Gaps
+
+```css
+.grid {
+  display: grid;
+  gap: var(--space-2); /* 16px */
+}
+
+.grid-lg {
+  gap: var(--space-4); /* 32px */
+}
+```
+
+## Border Radius
+
+The Kopi design system uses consistent border radius values:
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `radius-sm` | 8px | Small elements, tags |
+| `radius-md` | 12px | Cards, inputs |
+| `radius-lg` | 16px | Buttons, modals |
+| `radius-xl` | 20px | Large surfaces |
+| `radius-full` | 9999px | Pills, circular elements |
+
+**From Button component**: `border-radius: 16px` (radius-lg)
+
+## Do's and Don'ts
+
+### Do's
+
+✅ Use the 8px spacing scale consistently
+✅ Maintain rhythm by using multiples of 8px
+✅ Use spacing tokens instead of hard-coded values
+✅ Apply consistent spacing across similar components
+
+### Don'ts
+
+❌ Don't use arbitrary spacing values
+❌ Don't mix different spacing systems
+❌ Don't use spacing smaller than 8px except for optical adjustments
+❌ Don't create visual tension with inconsistent spacing
+
+## Responsive Spacing
+
+Adjust spacing for different screen sizes:
+
+```css
+.section {
+  padding: var(--space-4); /* 32px mobile */
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: var(--space-6); /* 48px tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: var(--space-8); /* 64px desktop */
+  }
+}
+```
+
+## Component Examples
+
+### Button Spacing
+
+```css
+.button {
+  padding: var(--btn-padding-y-sm) var(--btn-padding-x-sm); /* 8px 16px */
+  gap: var(--btn-gap); /* 8px */
+  border-radius: 16px;
+}
+```
+
+### Card Spacing
+
+```css
+.card {
+  padding: var(--space-4); /* 32px */
+  border-radius: var(--radius-md); /* 12px */
+}
+
+.card-title {
+  margin-bottom: var(--space-2); /* 16px */
+}
+
+.card-content {
+  margin-bottom: var(--space-3); /* 24px */
+}
+```
+
+### Form Spacing
+
+```css
+.form-field {
+  margin-bottom: var(--space-3); /* 24px */
+}
+
+.form-label {
+  margin-bottom: var(--space-1); /* 8px */
+}
+
+.form-help-text {
+  margin-top: var(--space-1); /* 8px */
+}
+```
+
+## Related
+
 <CardGroup cols={2}>
-  <Card title="Use the Scale" icon="ruler">
-    Always use values from the spacing scale. Avoid arbitrary values like 15px or 23px.
+  <Card title="Typography" icon="font" href="/design-system/foundations/typography">
+    Line heights and text spacing
   </Card>
 
-  <Card title="Think in Multiples" icon="calculator">
-    Stick to multiples of 4px using our spacing scale. Half-values (0.5, 1.5, 2.5) provide fine-tuning options.
+  <Card title="Components" icon="cube" href="/design-system/components/buttons">
+    See spacing in components
   </Card>
 
-  <Card title="Group Related Items" icon="object-group">
-    Use smaller spacing (8px-16px) for related items, larger spacing (32px+) for separate sections.
-  </Card>
-
-  <Card title="Maintain Consistency" icon="equals">
-    Use the same spacing values for similar contexts throughout your design.
+  <Card title="Design Tokens" icon="code" href="/design-system/foundations/design-tokens">
+    Implementation tokens
   </Card>
 </CardGroup>
 
-## Accessibility Considerations
-
-<Warning>
-  Ensure touch targets are at least 44px × 44px for mobile devices, including the spacing around interactive elements.
-</Warning>
-
-### Minimum Spacing
-
-- **Touch targets**: 44px minimum (including padding/margin)
-- **Text line spacing**: 1.5× font size minimum for body text
-- **Interactive elements**: 8px minimum spacing between clickable items
-
-## Common Patterns
-
-### Form Layouts
-
-```css
-/* Form field group */
-.form-group {
-  margin-bottom: 20px; /* space-5 */
-}
-
-/* Label to input */
-.label {
-  margin-bottom: 8px; /* space-2 */
-}
-
-/* Helper text */
-.helper-text {
-  margin-top: 8px; /* space-2 */
-}
-
-/* Form sections */
-.form-section {
-  margin-bottom: 40px; /* space-10 */
-}
-```
-
-### Card Grids
-
-```css
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px; /* space-6 */
-  padding: 32px; /* space-8 */
-}
-```
+---
 
 <Info>
-  When implementing spacing, use CSS custom properties or design tokens to ensure consistency and make global updates easier.
+All spacing values are extracted from actual Kopi components to ensure consistency between design and implementation.
 </Info>

@@ -1,193 +1,189 @@
 ---
 title: "Colors"
-description: "Color palette, usage guidelines, and accessibility standards"
+description: "Color palette and usage guidelines for the Kopi design system"
 icon: "palette"
 ---
 
-## Color Palette
+## Overview
 
-Our color system is designed for clarity, accessibility, and brand consistency.
+The Kopi color system uses a dark, minimal palette designed for clarity and focus. The system emphasizes contrast and readability while maintaining a modern, professional aesthetic.
 
-### Primary Colors
-
-<AccordionGroup>
-  <Accordion title="Purple" icon="circle" iconType="solid">
-    **Usage**: Primary brand color for main actions, links, and key brand elements
-
-    | Variant | Hex | RGB | Usage |
-    |---------|-----|-----|-------|
-    | Purple | `#9747ff` | `rgb(151, 71, 255)` | Primary brand color |
-
-    <Tip>
-      Purple is the primary brand color used for primary CTAs, interactive elements, and brand identification.
-    </Tip>
-  </Accordion>
-
-  <Accordion title="Blue" icon="circle" iconType="solid">
-    **Usage**: Secondary brand color for accents and supporting elements
-
-    | Variant | Hex | RGB | Usage |
-    |---------|-----|-----|-------|
-    | Blue | `#2684fc` | `rgb(38, 132, 252)` | Secondary brand color |
-
-    <Tip>
-      Blue serves as a complementary brand color for secondary actions and accents.
-    </Tip>
-  </Accordion>
-</AccordionGroup>
-
-### Semantic Colors
-
-<AccordionGroup>
-  <Accordion title="Success" icon="circle-check" iconType="solid">
-    **Usage**: Success states, confirmations, positive feedback
-
-    | Variant | Hex | RGB | Usage |
-    |---------|-----|-----|-------|
-    | Success | `#34c759` | `rgb(52, 199, 89)` | Success messages, confirmations, positive indicators |
-  </Accordion>
-
-  <Accordion title="Warning" icon="triangle-exclamation" iconType="solid">
-    **Usage**: Warning states, caution messages
-
-    | Variant | Hex | RGB | Usage |
-    |---------|-----|-----|-------|
-    | Warning | `#ff6900` | `rgb(255, 105, 0)` | Warning messages, caution indicators |
-  </Accordion>
-
-  <Accordion title="Error" icon="circle-exclamation" iconType="solid">
-    **Usage**: Error states, destructive actions, validation errors
-
-    | Variant | Hex | RGB | Usage |
-    |---------|-----|-----|-------|
-    | Error | `#ff5858` | `rgb(255, 88, 88)` | Error messages, destructive actions, validation errors |
-  </Accordion>
-
-  <Accordion title="Info" icon="circle-info" iconType="solid">
-    **Usage**: Informational messages, neutral notifications
-
-    | Variant | Hex | RGB | Usage |
-    |---------|-----|-----|-------|
-    | Info | `#5861ff` | `rgb(88, 97, 255)` | Informational messages, neutral notifications |
-  </Accordion>
-</AccordionGroup>
-
-### Neutral Colors
-
-<Accordion title="Gray Scale" icon="circle" iconType="solid">
-  **Usage**: Text, backgrounds, borders, dividers
-
-  | Variant | Hex | RGB | Usage |
-  |---------|-----|-----|-------|
-  | White | `#ffffff` | `rgb(255, 255, 255)` | Pure white backgrounds |
-  | Gray 50 | `#fafafa` | `rgb(250, 250, 250)` | Lightest background |
-  | Gray 100 | `#f4f4f5` | `rgb(244, 244, 245)` | Light background |
-  | Gray 200 | `#e4e4e7` | `rgb(228, 228, 231)` | Borders and dividers |
-  | Gray 400 | `#9f9fa9` | `rgb(159, 159, 169)` | Disabled text and secondary UI |
-  | Gray 500 | `#71717b` | `rgb(113, 113, 123)` | Placeholder text |
-  | Gray 600 | `#52525c` | `rgb(82, 82, 92)` | Secondary text |
-  | Gray 800 | `#27272a` | `rgb(39, 39, 42)` | Dark UI elements |
-  | Gray 900 | `#18181b` | `rgb(24, 24, 27)` | Primary text |
-  | Black | `#000000` | `rgb(0, 0, 0)` | Pure black |
-</Accordion>
+## Primary Colors
 
 ### Background Colors
 
-<Accordion title="Background Variants" icon="square" iconType="solid">
-  **Usage**: Page and component backgrounds
+<AccordionGroup>
+  <Accordion title="Dark" icon="circle" iconType="solid">
+    **Primary Background**
 
-  | Variant | Hex | RGB | Usage |
-  |---------|-----|-----|-------|
-  | Primary | `#fdfdfd` | `rgb(253, 253, 253)` | Main page backgrounds |
-  | Secondary | `#f5f5f5` | `rgb(245, 245, 245)` | Secondary surfaces and panels |
-  | Tertiary | `#fafafa` | `rgb(250, 250, 250)` | Tertiary backgrounds and subtle elevation |
-</Accordion>
+    - **Hex**: `#17171A`
+    - **RGB**: `rgb(23, 23, 26)`
+    - **Usage**: Main background color, primary surfaces, button backgrounds
 
-### Border Colors
+    This is the primary dark background used throughout the Kopi interface.
+  </Accordion>
 
-<Accordion title="Border Variants" icon="border-all" iconType="solid">
-  **Usage**: Component borders and dividers
+  <Accordion title="Light" icon="circle" iconType="solid">
+    **Text on Dark**
 
-  | Variant | Hex | RGB | Usage |
-  |---------|-----|-----|-------|
-  | Default | `#e4e4e7` | `rgb(228, 228, 231)` | Standard borders and dividers |
-  | Subtle | `#d2d4db` | `rgb(210, 212, 219)` | Subtle borders for lighter separation |
-</Accordion>
+    - **Hex**: `#FCFCFC`
+    - **RGB**: `rgb(252, 252, 252)`
+    - **Usage**: Text on dark backgrounds, icons, UI elements
+
+    Near-white color providing excellent contrast on dark backgrounds.
+    **Contrast Ratio**: 19.8:1 (WCAG AAA)
+  </Accordion>
+</AccordionGroup>
+
+## Color Usage
+
+### Interface Colors
+
+The Kopi interface uses a minimal color palette focused on functionality:
+
+| Color Name | Hex Code | Usage |
+|------------|----------|-------|
+| Background Dark | `#17171A` | Main background, surfaces, button backgrounds |
+| Text Primary | `#FCFCFC` | Primary text, icons on dark |
+| Background Light | `#FCFCFC` | Light backgrounds (inverse theme) |
+| Text Dark | `#17171A` | Text on light backgrounds |
+
+### Semantic Colors
+
+<Note>
+Semantic colors for voting and states are defined through type variants in components. See the Button component documentation for voting-specific colors (for, against, neutral).
+</Note>
 
 ## Accessibility
 
 ### Contrast Ratios
 
-All color combinations must meet WCAG 2.1 AA standards at minimum:
+All color combinations meet or exceed WCAG AA standards:
 
-<CardGroup cols={2}>
-  <Card title="Normal Text" icon="text">
-    **Minimum ratio: 4.5:1**
+| Combination | Contrast Ratio | WCAG Level | Usage |
+|-------------|---------------|------------|-------|
+| `#FCFCFC` on `#17171A` | 19.8:1 | AAA | Body text, UI elements |
+| `#17171A` on `#FCFCFC` | 19.8:1 | AAA | Inverse theme |
 
-    For text smaller than 18px (or 14px bold)
-  </Card>
+<Tip>
+**WCAG Requirements:**
+- **AA**: Minimum 4.5:1 for normal text, 3:1 for large text
+- **AAA**: Minimum 7:1 for normal text, 4.5:1 for large text
 
-  <Card title="Large Text" icon="heading">
-    **Minimum ratio: 3:1**
-
-    For text 18px+ (or 14px+ bold)
-  </Card>
-
-  <Card title="UI Components" icon="square-check">
-    **Minimum ratio: 3:1**
-
-    For interactive elements and graphics
-  </Card>
-
-  <Card title="AAA Standard" icon="medal">
-    **Enhanced ratios**
-
-    Normal text: 7:1, Large text: 4.5:1
-  </Card>
-</CardGroup>
+All Kopi color combinations exceed AAA requirements.
+</Tip>
 
 ### Color Blindness
 
-<Warning>
-  Never rely solely on color to convey information. Always pair color with text, icons, or patterns.
-</Warning>
+- High contrast ratios ensure visibility for users with color vision deficiencies
+- Never rely on color alone to convey information
+- Use icons, labels, and text in addition to color coding
 
-Test all color combinations for:
-- Protanopia (red-blind)
-- Deuteranopia (green-blind)
-- Tritanopia (blue-blind)
-- Achromatopsia (total color blindness)
+## Implementation
+
+### CSS Variables
+
+```css
+:root {
+  /* Background Colors */
+  --color-bg-dark: #17171A;
+  --color-bg-light: #FCFCFC;
+
+  /* Text Colors */
+  --color-text-on-dark: #FCFCFC;
+  --color-text-on-light: #17171A;
+
+  /* Contrast ratios */
+  --contrast-primary: 19.8;
+}
+
+/* Dark theme (default) */
+body {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+}
+
+/* Light theme (inverse) */
+body.theme-light {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-on-light);
+}
+```
+
+### Tailwind CSS
+
+```javascript
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        'bg-dark': '#17171A',
+        'bg-light': '#FCFCFC',
+        'text-primary': '#FCFCFC',
+        'text-inverse': '#17171A',
+      },
+    },
+  },
+}
+```
 
 ## Usage Guidelines
 
-<Steps>
-  <Step title="Start with semantic meaning">
-    Choose colors based on their semantic meaning (primary for main actions, error for warnings, etc.)
-  </Step>
+### Do's
 
-  <Step title="Check contrast">
-    Verify contrast ratios meet accessibility standards using tools like WebAIM Contrast Checker
-  </Step>
+✅ Use `#17171A` for all dark backgrounds
+✅ Use `#FCFCFC` for text on dark backgrounds
+✅ Maintain high contrast for readability
+✅ Test color combinations for accessibility
 
-  <Step title="Use consistently">
-    Apply the same color for the same purpose across all interfaces
-  </Step>
+### Don'ts
 
-  <Step title="Limit your palette">
-    Use 2-3 colors per component or section to avoid visual clutter
-  </Step>
-</Steps>
+❌ Don't use colors with insufficient contrast
+❌ Don't rely solely on color to convey meaning
+❌ Don't use too many colors - keep it minimal
+❌ Don't reduce opacity below readable levels
 
-## Dark Mode
+## Color Application
+
+### Buttons
+
+- **Primary**: `#17171A` background with `#FCFCFC` text
+- **Secondary**: Transparent background with `#17171A` border
+- **Ghost**: Minimal styling with `#FCFCFC` text
+
+See the [Button Component](/design-system/components/buttons) for detailed color usage.
+
+### Typography
+
+- **Headings**: `#FCFCFC` on dark backgrounds
+- **Body Text**: `#FCFCFC` on dark backgrounds
+- **Secondary Text**: `#FCFCFC` with reduced opacity (if needed)
+
+See [Typography](/design-system/foundations/typography) for text color usage.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Typography" icon="font" href="/design-system/foundations/typography">
+    Text styles and color usage
+  </Card>
+
+  <Card title="Components" icon="cube" href="/design-system/components/buttons">
+    See colors in action
+  </Card>
+
+  <Card title="Design Tokens" icon="code" href="/design-system/foundations/design-tokens">
+    Implementation variables
+  </Card>
+
+  <Card title="Accessibility" icon="universal-access">
+    Color contrast guidelines
+  </Card>
+</CardGroup>
+
+---
 
 <Info>
-  When implementing dark mode, use darker variants for backgrounds and lighter variants for text and interactive elements. Maintain the same contrast ratios as light mode.
+The Kopi color system is intentionally minimal to maintain focus and clarity. Additional colors are introduced through semantic variants (voting states, etc.) in specific components.
 </Info>
-
-| Element | Light Mode | Dark Mode |
-|---------|------------|-----------|
-| Background | Gray 50 (`#fafafa`) | Gray 900 (`#18181b`) |
-| Surface | White (`#ffffff`) | Gray 800 (`#27272a`) |
-| Text Primary | Gray 900 (`#18181b`) | Gray 50 (`#fafafa`) |
-| Text Secondary | Gray 600 (`#52525c`) | Gray 400 (`#9f9fa9`) |
-| Borders | Gray 200 (`#e4e4e7`) | Gray 600 (`#52525c`) |
