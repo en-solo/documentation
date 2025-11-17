@@ -70,7 +70,8 @@
           {
             "group": "Components",
             "pages": [
-              "design-system/components/buttons"
+              "design-system/components/buttons",
+              "design-system/components/buttons-test"
             ]
           },
           {
